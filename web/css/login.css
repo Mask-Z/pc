@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+.clear{clear:both;}
+body{/*background:url(../images/logbg.jpg) repeat-x;*/ background:url(../images/logbg.jpg) center top no-repeat; margin:0px;padding:0px;zoom:1;max-height:768px;}
+.loginBig{width:1000px;*width:990px;margin:0px auto;margin:0px auto;}
+.loginleft{float:left;width:250px;}
+.loginleft img{float:left;margin-top:151px;*margin-top:151px;width:115px;height:110px;}
+.logincompany{font-size:42px;color:#0c5fce;text-shadow:#e3ebf7 1px 1px 1px;letter-spacing:0px;font-family:'黑体';margin-bottom:10px;margin-top:155px;}
+.loginSystem{font-size:42px;color:#333;text-shadow:#e3ebf7 1px 1px 1px;letter-spacing:0px;font-family:'黑体';letter-spacing:2px;margin-top:60px;}
+.loginright{float:left;width:480px;
+height:350px;
+background:url(../images/login_right_bg.png) no-repeat;margin-top:175px; margin-left:10px;}
+.textLogin{font-size:18px;font-family:'微软雅黑';color:#fff;margin:25px 0px 10px 0px; text-align:center;}
+.userNameDiv{margin:10px 0px 0px 2px;position:relative;}
+.usernameText{
+	text-indent:25px;
+	border:1px solid #ccc;
+	-moz-border-radius:5px 5px;
+	-webkit-border-radius:5px 5px;
+	border-radius:5px 5px;
+	display:block;margin:110px 0px 0px 95px;height:30px;line-height:30px;width:290px;
+	}
+	.rePwdLabel{color:#666;cursor:pointer;}
+	.forPdwLabel{color:#4795E4;width:79px;cursor:pointer;text-align:right;display:inline-block;}
+.passwordText{border:1px solid #ccc;
+text-indent:25px;
+-moz-border-radius:5px 5px;
+-webkit-border-radius:5px 5px;
+border-radius:5px 5px;
+display:block;margin:1px 0px 0px 95px;height:30px;line-height:30px;width:290px;}
+.usernameLabel{width:20px;height:20px;background:url('../images/namepwd.png') no-repeat;
+background-position:0px 0px;position: absolute;left:100px;top:8px;}
+.passwordLabel{display:block;width:20px;height:20px;background:url('../images/namepwd.png') no-repeat;
+background-position:0px -20px;position: absolute;left:100px;top:62px;}
+.rememberForgetPwd{
+	margin:8px 0px 0px 95px;
+	font-size:14px;
+	width:290px;
+	font-family:'微软雅黑';
+}
+.errorDiv{height:20px;color:red;font-size:12px;text-align:left;margin-top:5px;width:210px;display:inline-block;}
+.submitButton{
+background:#0d6aea;width:290px;height:35px;border:none;
+-moz-border-radius:5px 5px;
+-webkit-border-radius:5px 5px;
+border-radius:5px 5px;
+color:#fff;
+font-family:'微软雅黑';
+font-size:16px;
+cursor:pointer;
+margin:10px 0px 0px 95px;
+text-align:center;
+}
+.copyright{
+	font-size:12px;
+	text-align:center;
+	color:#999;
+	font-family:'微软雅黑';
+    margin-top:25px;
+}
+.copyright span{display:block;margin-top:1px;}
