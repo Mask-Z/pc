@@ -1,0 +1,587 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>e交易-产权交易平台</title>
+    <meta name="description" content="易交易产权交易平台、">
+    <meta name="keyword" content="e交易、交易网、易交易、产权、产权交易、招标、招标采购、二手车、房地产、粮食、土地">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/list.css">
+
+</head>
+
+<body>
+        <!--  头部B-->  
+        <div class="header_top">
+            <div class="k1200">
+             <div class="sub_left">
+              <ul>
+                <li><span class="fc55">欢迎来到e交易平台</span></li>
+              </ul>
+             </div>
+             <div class="site-nav-fr">
+                    <ul class="clear1">
+                        <li><a href="member.html" class="site-nav-user">帮助中心</a></li>
+                        <li class="spacer"></li>
+                        <li>客服电话：<b class="fcdd3 bold f14">400-990-1400</b></li>
+        
+                    </ul>
+                </div>
+             
+            </div>
+          </div>     
+            <div class="header">
+              <div class="logo"><a href=""><img src="images/logo.png" class="dsb"></a></div>
+            <div class="head-location">
+                <div class="location"><a href="javascript:void(0);" id="locationCityPanel">全国</a><i></i></div>
+                <div class="location_qiehuan" style="display: none;">
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;1204&quot;,&quot;江阴&quot;,&quot;jy&quot;)">江阴</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;115&quot;,&quot;常州&quot;,&quot;cz&quot;)">常州</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;113&quot;,&quot;无锡&quot;,&quot;wx&quot;)">无锡</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;112&quot;,&quot;南京&quot;,&quot;nj&quot;)">南京</a>
+                    <a href="javascript:void(0)"onclick="ChangeCity(&quot;10&quot;,&quot;上海&quot;,&quot;sh&quot;)">上海</a> 
+                </div>
+            </div>
+           <div class="head-search">
+              <div class="title-search">
+            <div id="SearchCategory" class="base-select  search-select">
+                <cite id="index_search_type">产权交易<i class="ico"></i></cite>
+                <ul>
+                    <li><a href="javascript:;" selectid="1">产权交易</a></li>
+                    <li><a href="javascript:;" selectid="2">招标采购</a></li>
+                </ul>
+            </div>
+             <div class="field">
+                <input type="text" name="nope" id="nope"  class="search-input" placeholder="请输入您要搜索的关键字:车 "  maxlength="40" />
+            </div>
+            <button onclick="search('key');return false;" class="search-button"><i></i>搜索</button>
+         </div>
+            
+          </div>
+          <div class="hot-search">
+            <h5>热门关键词：</h5>
+            <a href="">学区房</a>                   
+            <a href="">厂房</a>
+            <a href="">办公楼</a>
+            <a href="">奥迪A6</a>
+            </div>
+          <a href="" class="head-fb-btn">发布交易委托</a>
+        </div> 
+        
+        <div class="menu">
+         <div class="menu_box">
+             
+             <div class="nav_bar">
+                <ul>         
+                   <li><a href="index.html">首页</a></li>
+                   <li><a href="">产权交易</a></li>
+                   <li><a href="">招标采购</a></li>
+                   <li><a href="">捡漏</a></li>
+                   <li><a href="">金融理财</a></li>
+                   <li><a href="">股权托管</a></li>
+                   <li><a href="">e帮无忧</a></li> 
+                 </ul>
+                
+           </div> 
+           </div>
+        </div>
+        <!--  头部E-->
+       <div class="base-container clearfix">
+        
+       <div class="row clearfix">
+       <div class="crumbs clearfix">
+        <div class="fl">
+            <a href="" target="_blank">首页</a>
+            &gt; <a href="" target="_blank">房产招租比一比</a> 
+          </div>
+           <li class="select-result">
+            <dl>
+              <dd class="select-no"></dd>
+            </dl>
+          </li>
+      </div>
+        </div> 
+
+
+<div class="compareHouseTitleFixedContainer">
+    <div class="compareHouseTitle">
+      <div class="houseTitleContainer">
+        <div class="houseTitleOptions">
+          <div class="houseTitleName">标的比一比</div>
+          <div class="compareOption mt10" id="showAdvantage">
+              <label class="mt10"><input type="checkbox" class="checkbox" name="chkBest" > 隐藏相同项</label>
+          </div>
+        </div>
+            <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804165814001.jpg" width="236" height="177" class="dsb" alt="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市广化街3号金谷大厦（一层）房产竞价公告</a></div>
+              <div class="housePrice">7,380,000.00元</div>
+              <a  href="" class="close"></a>
+            </div>
+                                        <div class="houseNameCal  ">
+             <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804164004001.jpg" width="236" height="177" class="dsb" alt="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市怀德南路90号（一层、五层）房产竞价公告</a></div>
+              <div class="housePrice">9,880,000.00元</div>
+              <a  href="" class="close"></a>
+            </div>
+                                        <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804162344001.jpg" width="236" height="177" class="dsb" alt="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市五角场东村13幢8号房产竞价公告</a></div>
+              <div class="housePrice">1,670,000.00元</div>
+              <a  href="" class="close"></a>
+            </div>
+            <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804170507001.jpg" width="236" height="177" class="dsb" alt="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">新龙花苑84幢乙单元1102室竞价公告</a></div>
+              <div class="housePrice">782,300.00元</div>
+              <a  href="" class="close"></a>
+            </div>
+          </div>
+    </div>
+  </div>
+  <div class="mainContent">
+    <div class="contentContainer">
+              <div class="compareType">
+    <span class="typeName">核心信息</span>
+</div>
+<div class="Newcompretable clearfix mt15 mb15">
+  <div class="baseTable name">
+    <ul>
+      <li  class="Highlights">标的亮点</li>
+      <li>租金底价</li>
+      <li>单价</li>
+      <li>租赁面积约（㎡）</li>
+      <li>租赁期限（年）</li>
+      <li>所在层数</li>
+      <li>标的状态</li>
+      <li>规划用途</li>
+      <li>装修期限</li>
+      <li>承租押金(元)</li>
+      <li>租金递增方式</li>
+      <li class="cheng1">是否设置原承租人优先权</li>
+      <li>租金支付方式</li>
+      <li class="other">其它情况</li>
+      <li>联系方式</li>
+    </ul>
+  </div>
+  <div class="baseTable">
+    <ul>
+      <li class="Highlights">
+          <div class="search-characteristic clearfix">
+                                <span class="label"><b>近地铁</b><i></i></span>
+                                <span class="label second"><b>学区房</b><i></i></span>
+                                <span class="label third"><b>有地铁</b><i></i></span>
+                              </div>
+      </li>
+      <li>12999元/m²</li>
+      <li>567.78平米</li>
+      <li>527.78平米</li>
+      <li>597.78平米</li>
+      <li>--</li>
+      <li>--</li>
+      <li>商业</li>
+      <li>钢混</li>
+      <li>--</li>
+      <li>东北</li>
+      <li class="cheng1">无</li>
+      <li>精装</li>
+      <li  class="other">--</li>
+      <li>朱小姐 13512319843</li>
+    </ul>
+  </div>
+  <div class="baseTable">
+    <ul>
+      <li class="Highlights">
+          <div class="search-characteristic clearfix">
+                                <span class="label"><b>近地铁</b><i></i></span>
+                                <span class="label second"><b>学区房</b><i></i></span>
+                                <span class="label third"><b>有地铁</b><i></i></span>
+                              </div>
+      </li>
+      <li>12999元/m²</li>
+      <li>567.78平米</li>
+      <li>527.78平米</li>
+      <li>597.78平米</li>
+      <li>--</li>
+      <li>--</li>
+      <li>商业</li>
+      <li>钢混</li>
+      <li>--</li>
+      <li>东北</li>
+      <li class="cheng1">有</li>
+      <li>无</li>
+      <li>--</li>
+      <li>朱小姐 13512319843</li>
+    </ul>
+  </div>
+  <div class="baseTable">
+    <ul>
+      <li class="Highlights">
+          <div class="search-characteristic clearfix">
+                                <span class="label"><b>近地铁</b><i></i></span>
+                                <span class="label second"><b>学区房</b><i></i></span>
+                                <span class="label third"><b>有地铁</b><i></i></span>
+                              </div>
+      </li>
+      <li>12999元/m²</li>
+      <li>567.78平米</li>
+      <li>527.78平米</li>
+      <li>597.78平米</li>
+      <li>--</li>
+      <li>--</li>
+      <li>商业</li>
+      <li>钢混</li>
+      <li>精装</li>
+      <li>--</li>
+      <li class="cheng1">有</li>
+      <li>无</li>
+      <li>--</li>
+      <li>朱小姐 13512319843</li>
+    </ul>
+  </div>
+  <div class="baseTable">
+    <ul>
+      <li class="Highlights">
+          <div class="search-characteristic clearfix">
+            <span class="label"><b>近地铁</b><i></i></span>
+            <span class="label second"><b>学区房</b><i></i></span>
+            <span class="label third"><b>有地铁</b><i></i></span>
+          </div>
+      </li>
+      <li>12999元/m²</li>
+      <li>567.78平米</li>
+      <li>527.78平米</li>
+      <li>597.78平米</li>
+      <li>--</li>
+      <li>--</li>
+      <li>商业</li>
+      <li>钢混</li>
+      <li>--</li>
+      <li>东北</li>
+      <li class="cheng1">无</li>
+      <li>精装</li>
+      <li>--</li>
+      <li>朱小姐 13512319843</li>
+    </ul>
+  </div>
+
+
+</div>
+
+</div>
+    </div>
+  </div>
+   
+
+
+  <!--  通用底部b -->
+
+        <div class="base-footer clearfix">
+          <div class="smt clearfix">
+            <div class="box">
+                <dl>
+                  <dt><b class="fot_ico1"></b><p>运营规范</p></dt>
+                  <dd>
+                    国有平台诚信第一<br>服务标准国内领先
+
+                  </dd>
+              </dl>
+              <dl>
+                  <dt><b class="fot_ico2"></b><p>操作简便</p></dt>
+                  <dd>
+                   交易流程标准精简<br>轻松操作迅速上手
+
+                  </dd>
+              </dl>
+              <dl>
+                  <dt><b class="fot_ico3"></b><p>配置灵活</p></dt>
+                  <dd>
+                    流程模板个性化定制<br>满足机构（企业）差异化需求
+
+                  </dd>
+              </dl>
+              <dl class="list4">
+                  <dt><b class="fot_ico4"></b><p>安全可靠</p></dt>
+                  <dd>
+                    交易安全：采用CA认证等多重加密技术<br>信息安全：达到国家公安部三级等保要求<br>资金安全：委托银行存管，三方确认拨付
+                    </dd>
+              </dl>
+
+            </div>
+          </div>
+          <div class="smc clearfix">
+                <dl>
+                  <dt>关于我们</dt>
+                  <dd>
+                      <a href="">关于e交易</a>
+                      <a href="">诚聘英才</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>新手必读</dt>
+                  <dd>
+                      <a href="">注册账号</a>
+                      <a href="">操作流程</a>
+                      <a href="">竞价指南</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>新闻中心</dt>
+                  <dd>
+                      <a href="">平台公告</a>
+                      <a href="">业界资讯</a>
+                      <a href="">曝光台</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>政策法规</dt>
+                  <dd>
+                      <a href=""> 产权交易规则</a>
+                      <a href="">招标采购规则</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>加盟机构</dt>
+                  <dd>
+                      <a href="">加盟流程</a>
+                      <a href="">加盟优势</a>
+                      <a href="">加盟条件</a>
+                  </dd>
+                </dl>
+          </div>
+          <div class="smb">版权信息：2014-2015 常州创业投资集团有限公司版权所有 苏ICP备14044398号-1 <br>
+地址：常州市新北区龙锦路1259-2号10-13楼       联系电话：400-990-1400
+</div>
+        </div>
+        <!--  通用底部E -->
+        
+      
+
+        
+        <!--侧边快捷导航-->
+        <div class="sideTools glivia">
+  <div class="fixedleft">
+    <a href="javascript:void(0);" class="fix-close blank_hook" style="display: none;"></a>
+    <div class="side-tab">
+
+       <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jingjia"></a>
+        <div class="base-tip">
+          竞价中
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="javascript:void(0)" class="logo-name right_show  guanzhu"></a>
+        <div class="base-tip">
+          我的关注
+          <i></i>
+        </div>
+      </div>
+       <div class="tab-logo">
+        <a href="javascript:void(1)" class="logo-name liulan  right_show ">
+        </a>
+        <div class="base-tip">
+          浏览记录
+          <i>
+          </i>
+        </div>
+      </div> 
+      <div class="tab-logo">
+        <a href="javascript:void(0)" class="logo-name search">
+        </a>
+        <div class="base-tip">
+          高级检索
+          <i>
+          </i>
+        </div>
+      </div>
+
+      
+    </div>
+    <div class="side-bottom">
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name qq"></a>
+        <div class="base-tip">
+          在线客服
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="javascript:void(0)"  class="logo-name fix-subtop duibi"><b></b></a>
+        <div class="base-tip">
+          比一比
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jisuanqi"></a>
+        <div class="base-tip">
+          综合测算
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name money"></a>
+        <div class="base-tip">
+          资金查询
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jianyi"></a>
+        <div class="base-tip">
+          意见建议
+          <i></i>
+        </div>
+      </div>
+      
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name erweima"></a>
+        <div class="base-tip erweima">
+          <img src="images/qrcode_01.jpg" alt="">
+          <i></i>
+        </div>
+      </div>
+      
+      <div class="tab-logo">
+        <a href="javascript:void(0)" class="logo-name return" style="display: block;">
+        </a>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <div class="fixedright">
+    <div class="new-plugin">
+            <div class="box clearfix">
+              <h3>标的比一比</h3>
+                 <ul>
+                       <li>
+                           <a href="" class="close"></a>
+                            <a href="" target="_blank" class="content4-detail">
+                                <img src="img2/pic-11.jpg">
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                        <a href="" class="close"></a>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                           <a href="" class="close"></a>
+                            <a href="" target="_blank" class="content4-detail">
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                        <a href="" class="close"></a>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+
+                  </ul>
+                  <div class=""><a href="" class="btn-search-box">开始比一比</a></div>
+             </div>
+
+
+            
+
+
+              </div>    
+    
+  </div>
+</div>
+        <!--/侧边快捷导航-->
+        
+
+
+   <script src="js/jquery-1.7.2.min.js"></script>
+   <script src="js/jquery.autocompleter.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/focus.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/glivia.js"></script>
+   <script src="js/list.js"></script>
+<script type="text/javascript">
+function CoLeeSelect(thisObj){
+  
+ var thisinput = thisObj.getElementsByTagName("input");
+ var thisul = thisObj.getElementsByTagName("ul");
+ var thisli = thisul[0].getElementsByTagName("li");
+ if(thisObj.id != "CoLeeSelect"){
+  thisObj.id = "CoLeeSelect";
+  thisObj.focus();
+  thisul[0].style.display = "";
+  for(var i=0;i<thisli.length;i++){
+   thisli[i].onmouseover = function(){
+    for(var j=0;j<thisli.length;j++){
+     thisli[j].className = "";
+     }
+    this.className = "on";
+    }
+   thisli[i].onclick = function(){
+    thisinput[0].value = this.innerHTML;
+    }
+   }
+  }else{
+   ObjBlur();
+  }
+  thisObj.onblur = ObjBlur;
+  function ObjBlur(){
+   thisObj.id =  "";
+   thisul[0].style.display = "none";
+   thisObj.blur();
+   }
+ }
+</script>
+</body>
+
+</html>

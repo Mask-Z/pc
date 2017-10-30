@@ -1,0 +1,96 @@
+﻿
+<!DOCTYPE html>  
+    <html>  
+    <head>  
+        <title>放大镜效果</title>  
+        <meta charset="utf-8">  
+        <style type="text/css">
+            .box{width:310px;margin:50px auto;}
+            .tb-pic a{display:table-cell;text-align:center;vertical-align:middle;}
+            .tb-pic a img{vertical-align:middle;}
+            .tb-pic a{*display:block;*font-family:Arial;*line-height:1;}
+            .tb-thumb{margin:10px 0 0;overflow:hidden;}
+            .tb-thumb li{background:none repeat scroll 0 0 transparent;float:left;height:42px;margin:0 6px 0 0;overflow:hidden;padding:1px;}
+            .tb-s310, .tb-s310 a{height:310px;width:310px;}
+            .tb-s310, .tb-s310 img{max-height:310px;max-width:310px;}
+            .tb-s310 a{*font-size:271px;}
+            .tb-s40 a{*font-size:35px;}
+            .tb-s40, .tb-s40 a{height:40px;width:40px;}
+            .tb-booth{border:1px solid #CDCDCD;position:relative;z-index:1;}
+            .tb-thumb .tb-selected{background:none repeat scroll 0 0 #C30008;height:40px;padding:2px;}
+            .tb-thumb .tb-selected div{background-color:#FFFFFF;border:medium none;}
+            .tb-thumb li div{border:1px solid #CDCDCD;}
+            div.zoomDiv{z-index:999;position:absolute;top:0px;left:0px;width:200px;height:200px;background:#ffffff;border:1px solid #CCCCCC;display:none;text-align:center;overflow:hidden;}
+            div.zoomMask{position:absolute;background:url("images/mask.png") repeat scroll 0 0 transparent;cursor:move;z-index:1;}
+        </style>
+    </head>  
+    <body>  
+   <div class="container">
+            <div class="demo">
+                <h2 class="title"><a href="http://www.sucaihuo.com/js/88.html">jQuery仿淘宝放大镜插件imagezoom</a></h2>
+                <div class="box">
+                    <div class="tb-booth tb-pic tb-s310">
+                        <a href="http://www.sucaihuo.com/jquery/0/88/demo/images/01.jpg">
+                            <img src="http://www.sucaihuo.com/jquery/0/88/demo/images/01_mid.jpg" alt="美女" rel="http://www.sucaihuo.com/jquery/0/88/demo/images/01.jpg" class="jqzoom" style="cursor: crosshair;">
+                        </a>
+                    </div>
+                    <ul class="tb-thumb" id="thumblist">
+                        <li class="tb-selected">
+                            <div class="tb-pic tb-s40">
+                                <a href="">
+                                    <img src="http://www.sucaihuo.com/jquery/0/88/demo/images/01_small.jpg">
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-1.7.2.min.js"></script>
+        <script src="js/jquery.imagezoom.min.js"></script>
+        <script type="text/javascript" class="__web-inspector-hide-shortcut__">
+            $(function() {
+                $(".jqzoom").imagezoom();
+                $("#cSlideUl li a").click(function() {
+                    $(this).parents("li").addClass("tb-selected").siblings().removeClass("tb-selected");
+                    $(".jqzoom").attr('src', $(this).find("img").attr("mid"));
+                    $(".jqzoom").attr('rel', $(this).find("img").attr("big"));
+                });
+            });
+        </script>
+        <script>
+$(document).bind('click',function(e){
+                var e = e || window.event; //浏览器兼容性
+                var elem = e.target || e.srcElement;
+                while (elem) { //循环判断至跟节点，防止点击的是div子元素
+                    if (elem.id && elem.id=='test') {
+                        return;
+                    }
+                    elem = elem.parentNode;
+                }
+
+                $('#test').css('display','none'); //点击的不是div或其子元素
+            });
+        </script>
+        <script>
+function stopPropagation(e) { 
+    if (e.stopPropagation) 
+    e.stopPropagation(); 
+    else 
+    e.cancelBubble = true; 
+    } 
+
+    $(document).bind('click',function(){ 
+    $('.share-pop').css('display','none'); 
+    }); 
+
+    $('.share-pop').bind('click',function(e){ 
+    stopPropagation(e); 
+    }); 
+    function showfenxiang() {
+        $(this).addClass("have");
+        $(".share-pop").show();
+    };
+        </script>
+    </body>  
+    </html>    

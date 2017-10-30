@@ -1,0 +1,1763 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>e交易-产权交易平台</title>
+    <meta name="description" content="易交易产权交易平台、">
+    <meta name="keyword" content="e交易、交易网、易交易、产权、产权交易、招标、招标采购、二手车、房地产、粮食、土地">
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/list.css">
+
+</head>
+
+<body>
+        <!--  头部B-->  
+        <div class="header_top">
+            <div class="k1200">
+             <div class="sub_left">
+              <ul>
+                <li><span class="fc55">欢迎来到e交易平台</span></li>
+              </ul>
+             </div>
+             <div class="site-nav-fr">
+                    <ul class="clear1">
+                        <li><a href="member.html" class="site-nav-user">帮助中心</a></li>
+                        <li class="spacer"></li>
+                        <li>客服电话：<b class="fcdd3 bold f14">400-990-1400</b></li>
+        
+                    </ul>
+                </div>
+             
+            </div>
+          </div>     
+            <div class="header">
+              <div class="logo"><a href=""><img src="images/logo.png" class="dsb"></a></div>
+            <div class="head-location">
+                <div class="location"><a href="javascript:void(0);" id="locationCityPanel">全国</a><i></i></div>
+                <div class="location_qiehuan" style="display: none;">
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;1204&quot;,&quot;江阴&quot;,&quot;jy&quot;)">江阴</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;115&quot;,&quot;常州&quot;,&quot;cz&quot;)">常州</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;113&quot;,&quot;无锡&quot;,&quot;wx&quot;)">无锡</a>
+                    <a href="javascript:void(0)" onclick="ChangeCity(&quot;112&quot;,&quot;南京&quot;,&quot;nj&quot;)">南京</a>
+                    <a href="javascript:void(0)"onclick="ChangeCity(&quot;10&quot;,&quot;上海&quot;,&quot;sh&quot;)">上海</a> 
+                </div>
+            </div>
+           <div class="head-search">
+              <div class="title-search">
+            <div id="SearchCategory" class="base-select  search-select">
+                <cite id="index_search_type">产权交易<i class="ico"></i></cite>
+                <ul>
+                    <li><a href="javascript:;" selectid="1">产权交易</a></li>
+                    <li><a href="javascript:;" selectid="2">招标采购</a></li>
+                </ul>
+            </div>
+             <div class="field">
+                <input type="text" name="nope" id="nope"  class="search-input" placeholder="请输入您要搜索的关键字:车 "  maxlength="40" />
+            </div>
+            <button onclick="search('key');return false;" class="search-button"><i></i>搜索</button>
+         </div>
+            
+          </div>
+          <div class="hot-search">
+            <h5>热门关键词：</h5>
+            <a href="">学区房</a>                   
+            <a href="">厂房</a>
+            <a href="">办公楼</a>
+            <a href="">奥迪A6</a>
+            </div>
+          <a href="" class="head-fb-btn">发布交易委托</a>
+        </div> 
+        
+        <div class="menu">
+         <div class="menu_box">
+             
+             <div class="nav_bar">
+                <ul>         
+                   <li><a href="index.html">首页</a></li>
+                   <li><a href="">产权交易</a></li>
+                   <li><a href="">招标采购</a></li>
+                   <li><a href="">捡漏</a></li>
+                   <li><a href="">金融理财</a></li>
+                   <li><a href="">股权托管</a></li>
+                   <li><a href="">e帮无忧</a></li> 
+                 </ul>
+                
+           </div> 
+           </div>
+        </div>
+        <!--  头部E-->
+       <div class="base-container clearfix">
+        
+       <div class="row clearfix">
+       <div class="crumbs clearfix">
+        <div class="fl">
+            <a href="" target="_blank">首页</a>
+            &gt; <a href="" target="_blank">比一比</a> 
+          </div>
+           <li class="select-result">
+            <dl>
+              <dd class="select-no"></dd>
+            </dl>
+          </li>
+      </div>
+        </div> 
+
+
+<div class="compareHouseTitleFixedContainer">
+    <div class="compareHouseTitle">
+      <div class="houseTitleContainer">
+        <div class="houseTitleOptions">
+          <div class="houseTitleName">标的比一比</div>
+          <div class="compareOption" id="showAdvantage">
+          </div>
+        </div>
+            <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804165814001.jpg" width="220" height="168" class="dsb" alt="满五唯一税费少" 户型好="" 楼层好="" 采光充足="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市广化街3号金谷大厦（一层）房产竞价公告</a></div>
+              <div class="housePrice">7,380,000.00元</div>
+            </div>
+                                        <div class="houseNameCal  ">
+             <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804164004001.jpg" width="220" height="168" class="dsb" alt="满五唯一税费少" 户型好="" 楼层好="" 采光充足="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市怀德南路90号（一层、五层）房产竞价公告</a></div>
+              <div class="housePrice">9,880,000.00元</div>
+            </div>
+                                        <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804162344001.jpg" width="220" height="168" class="dsb" alt="满五唯一税费少" 户型好="" 楼层好="" 采光充足="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">常州市五角场东村13幢8号房产竞价公告</a></div>
+              <div class="housePrice">1,670,000.00元</div>
+            </div>
+                                        <div class="houseNameCal  ">
+              <a href="" target="_blank">
+                <img class="housePicture" src="http://www.e-jy.com.cn/smpic/20170804170507001.jpg" width="220" height="168" class="dsb" alt="满五唯一税费少" 户型好="" 楼层好="" 采光充足="">
+              </a>
+              <div class="houseName"><a href="" target="_blank">新龙花苑84幢乙单元1102室竞价公告</a></div>
+              <div class="housePrice">782,300.00元</div>
+            </div>
+                        </div>
+    </div>
+  </div>
+  <div class="mainContent">
+    <div class="contentContainer">
+              <div class="compareType">
+    <span class="typeName">核心信息</span>
+</div>
+<table class="compareTable">
+    <tbody>
+            <tr data-select="true" data-hide-same="true">
+                <th class="compareTableTh">标的亮点</th>
+                <td class="compareTableTd" data-index="0">
+                        <span class="houseTag taxfree">房本满五年</span>
+                        <span class="houseTag is_see_free">随时看房</span>
+                 </td>
+                 <td class="compareTableTd" data-index="1">
+                      <span class="houseTag is_subway_house">地铁</span>
+                      <span class="houseTag taxfree">房本满五年</span>
+                      <span class="houseTag is_see_free">随时看房</span>
+                </td>
+                <td class="compareTableTd" data-index="2">
+                          <span class="houseTag is_subway_house">地铁</span>
+                          <span class="houseTag taxfree">房本满五年</span>
+                          <span class="houseTag is_see_free">随时看房</span>
+                 </td>
+                 <td class="compareTableTd" data-index="3">
+                          <span class="houseTag taxfree">房本满五年</span>
+                </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">单价</th>
+               <td class="compareTableTd" data-index="0">
+                       12999元/m²
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      12319元/m²
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       8743元/m²
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                      7900元/m²
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">建筑面积</th>
+               <td class="compareTableTd" data-index="0">
+                       567.78平米
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       949.26平米
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       139.04平米
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       143.04平米
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">套内建筑面积</th>
+               <td class="compareTableTd" data-index="0">
+                       527.78平米
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       909.26平米
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       119.04平米
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       123.04平米
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">土地使用权面积</th>
+               <td class="compareTableTd" data-index="0">
+                       597.78平米
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       989.26平米
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       179.04平米
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       183.04平米
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">使用期限</th>
+               <td class="compareTableTd" data-index="0">
+                        73.65平米
+               </td>
+               <td class="compareTableTd" data-index="1">
+                        76.01平米
+               </td>
+               <td class="compareTableTd" data-index="2">
+                        52.61平米
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                        88.25平米
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">权利性质</th>
+               <td class="compareTableTd" data-index="0">
+                      --
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       --
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       --
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                      --
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">用   途</th>
+               <td class="compareTableTd" data-index="0">
+                       --
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       --
+               </td>
+               <td class="compareTableTd" data-index="2">
+                        --
+               </td>
+               <td class="compareTableTd " data-advantage="true" data-index="3">
+                        --
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">房屋结构</th>
+               <td class="compareTableTd" data-index="0">
+                       钢混
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       钢混
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       钢混
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       钢混
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">房屋户型</th>
+               <td class="compareTableTd" data-index="0">
+                        --
+               </td>
+               <td class="compareTableTd" data-index="1">
+                        --
+               </td>
+               <td class="compareTableTd" data-index="2">
+                       --
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       --
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">房屋朝向</th>
+               <td class="compareTableTd" data-index="0">
+                       南北
+               </td>
+               <td class="compareTableTd" data-index="1">
+                        南北
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      南北
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                     南北
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">租赁情况</th>
+               <td class="compareTableTd" data-index="0">
+                       无
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      无
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      无
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       无
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">装修情况</th>
+               <td class="compareTableTd" data-index="0">
+                      精装
+               </td>
+               <td class="compareTableTd" data-index="1">
+                       精装
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      精装
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                    毛坯
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">抵押情况</th>
+                <td class="compareTableTd" data-index="0">
+                       无
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      无
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      无
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       无
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">配备电梯</th>
+                <td class="compareTableTd" data-index="0">
+                      有
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      有
+               </td>
+               <td class="compareTableTd" data-index="2">
+                     有
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                     有
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">欠费情况</th>
+                <td class="compareTableTd" data-index="0">
+                       无
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      无
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      无
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       无
+               </td>
+            </tr>
+            <tr data-select="true" data-hide-same="true">
+               <th class="compareTableTh">其它情况</th>
+                <td class="compareTableTd" data-index="0">
+                       无
+               </td>
+               <td class="compareTableTd" data-index="1">
+                      无
+               </td>
+               <td class="compareTableTd" data-index="2">
+                      无
+               </td>
+               <td class="compareTableTd" data-advantage="true" data-index="3">
+                       无
+               </td>
+            </tr>
+            
+            
+        </tbody>
+</table>
+              <div class="compareType">
+    <span class="typeName">基础信息</span>
+</div>
+<table class="compareTable">
+    <tbody>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">套内面积</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        60.81㎡
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">60.81㎡</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd advantageCol" data-advantage="true" data-index="3">
+                        78㎡
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">78㎡</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">户型结构</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        平层
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">平层</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">建筑类型</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        板楼
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">板楼</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        板塔结合
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">板塔结合</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        板楼
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">板楼</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        板楼
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">板楼</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">建筑结构</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        钢混结构
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">钢混结构</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        钢混结构
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">钢混结构</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        砖混结构
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">砖混结构</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        钢混结构
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">钢混结构</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">梯户比例</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        一梯两户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">一梯两户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        两梯八户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">两梯八户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        一梯两户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">一梯两户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        一梯两户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">一梯两户</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">供暖方式</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        暂无数据
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无数据</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">配备电梯</th>
+                                                                    <td class="compareTableTd advantageCol" data-advantage="true" data-index="0">
+                        有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">有</div>
+                                            </td>
+                                                                                    <td class="compareTableTd advantageCol" data-advantage="true" data-index="1">
+                        有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">有</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        无
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">无</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        无
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">无</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">产权年限</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        70年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">70年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        70年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">70年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        70年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">70年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        70年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">70年</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">房屋用途</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        普通住宅
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">普通住宅</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        普通住宅
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">普通住宅</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        普通住宅
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">普通住宅</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        普通住宅
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">普通住宅</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">交易权属</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        商品房
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">商品房</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        商品房
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">商品房</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        商品房
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">商品房</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        房改房
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">房改房</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">产权所属</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        非共有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">非共有</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        共有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">共有</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        非共有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">非共有</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        非共有
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">非共有</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">抵押信息</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        无抵押
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">无抵押</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        无抵押
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">无抵押</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        有抵押 20000万元
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">有抵押 20000万元</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        无抵押
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">无抵押</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">建成年代</th>
+                                                                    <td class="compareTableTd advantageCol" data-advantage="true" data-index="0">
+                        2009年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2009年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd advantageCol" data-advantage="true" data-index="1">
+                        2009年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2009年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        1990年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">1990年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        2005年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2005年</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">上次交易</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        2009-09-30
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2009-09-30</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        2010-11-30
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2010-11-30</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        2010-08-03
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2010-08-03</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        2005-04-14
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2005-04-14</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">挂牌时间</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        26天
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">26天</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        22天
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">22天</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        16天
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">16天</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        20天
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">20天</div>
+                                            </td>
+                                    </tr>
+        </tbody>
+</table>
+              <div class="compareType">
+    <span class="typeName">户型信息</span>
+</div>
+<table class="compareTable">
+    <tbody>
+            <tr>
+            <th class="compareTableTh">户型图</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        <img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/2b40af3b-606e-4716-9616-063020ea071c.jpg.249x187.jpg" alt="户型图">
+                                                                            <div class="hide" data-role="summaryHtml"><img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/2b40af3b-606e-4716-9616-063020ea071c.jpg.249x187.jpg" alt="户型图"></div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        <img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/45ed367e-c195-4da8-b68a-37e250e8f4de.png.249x187.jpg" alt="户型图">
+                                                                            <div class="hide" data-role="summaryHtml"><img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/45ed367e-c195-4da8-b68a-37e250e8f4de.png.249x187.jpg" alt="户型图"></div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        <img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/9e00ac3a-73d8-4160-aa2b-d834fcc9ff70.png.249x187.jpg" alt="户型图">
+                                                                            <div class="hide" data-role="summaryHtml"><img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/9e00ac3a-73d8-4160-aa2b-d834fcc9ff70.png.249x187.jpg" alt="户型图"></div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        <img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/1c0a68bc-ceb2-4849-a9ff-f238e30e1f3c.png.249x187.jpg" alt="户型图">
+                                                                            <div class="hide" data-role="summaryHtml"><img class="framePic" src="https://image1.ljcdn.com/x-se/hdic-frame/1c0a68bc-ceb2-4849-a9ff-f238e30e1f3c.png.249x187.jpg" alt="户型图"></div>
+                                            </td>
+                                    </tr>
+            <tr>
+            <th class="compareTableTh">分间信息</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                          <div class="frameCellItem">卧室A　12.7㎡　暂无　无窗</div>
+  <div class="frameCellItem">卧室B　11.4㎡　南　普通窗</div>
+  <div class="frameCellItem">客厅　28.8㎡　北　普通窗</div>
+  <div class="frameCellItem">厨房　8.3㎡　北　普通窗</div>
+  <div class="frameCellItem">卫生间　5.3㎡　北　普通窗</div>
+  <div class="frameCellItem">阳台　6.5㎡　南　落地窗</div>
+
+                                                                            <div class="hide" data-role="summaryHtml">  <div class="frameCellItem">卧室A　12.7㎡　暂无　无窗</div>
+  <div class="frameCellItem">卧室B　11.4㎡　南　普通窗</div>
+  <div class="frameCellItem">客厅　28.8㎡　北　普通窗</div>
+  <div class="frameCellItem">厨房　8.3㎡　北　普通窗</div>
+  <div class="frameCellItem">卫生间　5.3㎡　北　普通窗</div>
+  <div class="frameCellItem">阳台　6.5㎡　南　落地窗</div>
+</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                          <div class="frameCellItem">卧室A　11.61㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　6.37㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　21.66㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">厨房　5.51㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　2.49㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　3.6㎡　暂无　未知窗户类型</div>
+
+                                                                            <div class="hide" data-role="summaryHtml">  <div class="frameCellItem">卧室A　11.61㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　6.37㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　21.66㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">厨房　5.51㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　2.49㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　3.6㎡　暂无　未知窗户类型</div>
+</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                          <div class="frameCellItem">卧室A　14.34㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　8.03㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　14.24㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　3.56㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　3.92㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">花园　6.67㎡　暂无　未知窗户类型</div>
+
+                                                                            <div class="hide" data-role="summaryHtml">  <div class="frameCellItem">卧室A　14.34㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　8.03㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　14.24㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　3.56㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　3.92㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">花园　6.67㎡　暂无　未知窗户类型</div>
+</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                          <div class="frameCellItem">卧室A　13.98㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　13.64㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室C　6.14㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　23.32㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">厨房　3.22㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　4.95㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　4.79㎡　暂无　未知窗户类型</div>
+
+                                                                            <div class="hide" data-role="summaryHtml">  <div class="frameCellItem">卧室A　13.98㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室B　13.64㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卧室C　6.14㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">客厅　23.32㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">厨房　3.22㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">卫生间　4.95㎡　暂无　未知窗户类型</div>
+  <div class="frameCellItem">阳台　4.79㎡　暂无　未知窗户类型</div>
+</div>
+                                            </td>
+                                    </tr>
+        </tbody>
+</table>
+            <div id="communityInfomation"><div class="compareType">
+    <span class="typeName">小区信息</span>
+</div>
+<table class="compareTable">
+    <tbody>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">小区名称</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        江岸水城
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">江岸水城</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        东渡国际青年城
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">东渡国际青年城</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        马府新村
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">马府新村</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        城南新村
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">城南新村</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">小区均价</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        20767元/平米
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">20767元/平米</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        28063元/平米
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">28063元/平米</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        27655元/平米
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">27655元/平米</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        22847元/平米
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">22847元/平米</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">建筑年代</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        2006年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2006年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        2009年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2009年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        1990年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">1990年</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        2005年
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2005年</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">楼栋总数</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        69栋
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">69栋</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        11栋
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">11栋</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        23栋
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">23栋</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        52栋
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">52栋</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">房屋总数</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        3797户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">3797户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        2632户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">2632户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        975户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">975户</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        1780户
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">1780户</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true" data-hide-same="true">
+            <th class="compareTableTh">物业费用</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        0.7元/平米/月
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">0.7元/平米/月</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        1.49元/平米/月
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">1.49元/平米/月</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        暂无
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">暂无</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        0.5 - 0.8元/平米/月
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">0.5 - 0.8元/平米/月</div>
+                                            </td>
+                                    </tr>
+        </tbody>
+</table>
+</div>
+      <div id="aroundInfomation"><div class="compareType">
+    <span class="typeName">配套信息</span>
+</div>
+<table class="compareTable">
+    <tbody>
+            <tr data-select="true">
+            <th class="compareTableTh">公交站</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        47个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">47个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        90个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">90个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        49个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">49个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        40个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">40个</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true">
+            <th class="compareTableTh">地铁</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        南京工业大学, 浦口万汇城, 龙华路, 文德路
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">南京工业大学, 浦口万汇城, 龙华路, 文德路</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        新街口, 西安门, 张府园, 大行宫, 常府街, 三山街, 夫子庙
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">新街口, 西安门, 张府园, 大行宫, 常府街, 三山街, 夫子庙</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        胜太路(地铁站), 竹山路, 小龙湾, 胜太路, 百家湖
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">胜太路(地铁站), 竹山路, 小龙湾, 胜太路, 百家湖</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        柳洲东路, 天润城
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">柳洲东路, 天润城</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true">
+            <th class="compareTableTh">餐饮</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true">
+            <th class="compareTableTh">购物</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        760个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">760个</div>
+                                            </td>
+                                    </tr>
+            <tr data-select="true">
+            <th class="compareTableTh">医院</th>
+                                                                    <td class="compareTableTd" data-index="0">
+                        9个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">9个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="1">
+                        146个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">146个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="2">
+                        13个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">13个</div>
+                                            </td>
+                                                                                    <td class="compareTableTd" data-index="3">
+                        1个
+                                                    <div class="selectCheckbox">
+                                <span class="checkboxIcon"></span>
+                                <span class="checkTip">重点关注</span>
+                            </div>
+                                                                            <div class="hide" data-role="summaryHtml">1个</div>
+                                            </td>
+                                    </tr>
+        </tbody>
+</table>
+</div>
+    </div>
+  </div>
+   
+
+
+  <!--  通用底部b -->
+
+        <div class="base-footer clearfix">
+          <div class="smt clearfix">
+            <div class="box">
+                <dl>
+                  <dt><b class="fot_ico1"></b><p>运营规范</p></dt>
+                  <dd>
+                    国有平台诚信第一<br>服务标准国内领先
+
+                  </dd>
+              </dl>
+              <dl>
+                  <dt><b class="fot_ico2"></b><p>操作简便</p></dt>
+                  <dd>
+                   交易流程标准精简<br>轻松操作迅速上手
+
+                  </dd>
+              </dl>
+              <dl>
+                  <dt><b class="fot_ico3"></b><p>配置灵活</p></dt>
+                  <dd>
+                    流程模板个性化定制<br>满足机构（企业）差异化需求
+
+                  </dd>
+              </dl>
+              <dl class="list4">
+                  <dt><b class="fot_ico4"></b><p>安全可靠</p></dt>
+                  <dd>
+                    交易安全：采用CA认证等多重加密技术<br>信息安全：达到国家公安部三级等保要求<br>资金安全：委托银行存管，三方确认拨付
+                    </dd>
+              </dl>
+
+            </div>
+          </div>
+          <div class="smc clearfix">
+                <dl>
+                  <dt>关于我们</dt>
+                  <dd>
+                      <a href="">关于e交易</a>
+                      <a href="">诚聘英才</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>新手必读</dt>
+                  <dd>
+                      <a href="">注册账号</a>
+                      <a href="">操作流程</a>
+                      <a href="">竞价指南</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>新闻中心</dt>
+                  <dd>
+                      <a href="">平台公告</a>
+                      <a href="">业界资讯</a>
+                      <a href="">曝光台</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>政策法规</dt>
+                  <dd>
+                      <a href=""> 产权交易规则</a>
+                      <a href="">招标采购规则</a>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>加盟机构</dt>
+                  <dd>
+                      <a href="">加盟流程</a>
+                      <a href="">加盟优势</a>
+                      <a href="">加盟条件</a>
+                  </dd>
+                </dl>
+          </div>
+          <div class="smb">版权信息：2014-2015 常州创业投资集团有限公司版权所有 苏ICP备14044398号-1 <br>
+地址：常州市新北区龙锦路1259-2号10-13楼       联系电话：400-990-1400
+</div>
+        </div>
+        <!--  通用底部E -->
+        
+      
+
+        
+        <!--侧边快捷导航-->
+        <div class="sideTools glivia">
+  <div class="fixedleft">
+    <a href="javascript:void(0);" class="fix-close blank_hook" style="display: none;"></a>
+    <div class="side-tab">
+
+       <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jingjia"></a>
+        <div class="base-tip">
+          竞价中
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="javascript:void(0)" class="logo-name guanzhu fix-subtop"></a>
+        <div class="base-tip">
+          我的关注
+          <i></i>
+        </div>
+      </div>
+       <div class="tab-logo">
+        <a href="javascript:void(0)" class="logo-name liulan  fix-subtop">
+        </a>
+        <div class="base-tip">
+          浏览记录
+          <i>
+          </i>
+        </div>
+      </div> 
+      <div class="tab-logo">
+        <a href="javascript:void(0)" class="logo-name search">
+        </a>
+        <div class="base-tip">
+          高级检索
+          <i>
+          </i>
+        </div>
+      </div>
+
+      
+    </div>
+    <div class="side-bottom">
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name qq"></a>
+        <div class="base-tip">
+          在线客服
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name duibi"></a>
+        <div class="base-tip">
+          比一比
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jisuanqi"></a>
+        <div class="base-tip">
+          综合测算
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name money"></a>
+        <div class="base-tip">
+          资金查询
+          <i></i>
+        </div>
+      </div>
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name jianyi"></a>
+        <div class="base-tip">
+          意见建议
+          <i></i>
+        </div>
+      </div>
+      
+      <div class="tab-logo">
+        <a id="webqq" href="" class="logo-name erweima"></a>
+        <div class="base-tip erweima">
+          <img src="images/qrcode_01.jpg" alt="">
+          <i></i>
+        </div>
+      </div>
+      
+      <div class="tab-logo">
+        <a href="javascript:void(0)" class="logo-name return" style="display: block;">
+        </a>
+      </div>
+      
+    </div>
+  </div>
+  
+  
+  <div class="fixedright">
+    <div class="new-plugin">
+            <div class="box clearfix">
+              <h3>我的关注</h3>
+              <ul>
+                  <li>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="content4-detail">
+                                
+                                
+                                <img src="img2/pic-11.jpg">
+                                
+                                <div class="content4-text">
+                                    <p class="title">环城西路3号综艺大厦0901～0903、0905～0909室房产转让</p>
+                                    <p class="info">  
+                                    <span></span><span class="price"><b>5500000.00</b> 元</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+
+                  </ul>
+             </div>
+             <div class="box clearfix">
+              
+             </div> 
+              </div>    
+    
+  </div>
+</div>
+        <!--/侧边快捷导航-->
+        
+
+
+   <script src="js/jquery-1.7.2.min.js"></script>
+   <script src="js/jquery.autocompleter.js"></script>
+    <script src="js/iconfont.js"></script>
+    <script src="js/focus.js"></script>
+   <script src="js/main.js"></script>
+   <script src="js/glivia.js"></script>
+   <script src="js/list.js"></script>
+<script type="text/javascript">
+function CoLeeSelect(thisObj){
+  
+ var thisinput = thisObj.getElementsByTagName("input");
+ var thisul = thisObj.getElementsByTagName("ul");
+ var thisli = thisul[0].getElementsByTagName("li");
+ if(thisObj.id != "CoLeeSelect"){
+  thisObj.id = "CoLeeSelect";
+  thisObj.focus();
+  thisul[0].style.display = "";
+  for(var i=0;i<thisli.length;i++){
+   thisli[i].onmouseover = function(){
+    for(var j=0;j<thisli.length;j++){
+     thisli[j].className = "";
+     }
+    this.className = "on";
+    }
+   thisli[i].onclick = function(){
+    thisinput[0].value = this.innerHTML;
+    }
+   }
+  }else{
+   ObjBlur();
+  }
+  thisObj.onblur = ObjBlur;
+  function ObjBlur(){
+   thisObj.id =  "";
+   thisul[0].style.display = "none";
+   thisObj.blur();
+   }
+ }
+</script>
+</body>
+
+</html>
