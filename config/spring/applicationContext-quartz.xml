@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+	<bean name="projectType_job"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.ProjectTypeJob" />
+	</bean>
+	
+	<bean name="indexCache_SyncJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.IndexInfoJob" />
+	</bean>
+	
+	<bean name="infomain_jygg_v2_SyncJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.DataSyncJob" />
+	</bean>
+	
+	<!-- 公告图片处理任务 -->
+	<bean name="picSyncJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.PicHandleJob" />
+	</bean>
+
+	<!-- 招标采购 招标公告和成交公告 任务 -->
+	<bean name="zbcgSyncJob"
+		  class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.IndexZBCGJob" />
+	</bean>
+
+	<bean name="citySyncJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.CityJob" />
+	</bean>
+	
+	<!-- 竞价大厅任务 -->
+	<bean name="JJDTSyncJob"
+		class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.JJDTInfoJob" />
+	</bean>
+	
+	<bean name="LogoSyncJob"
+		  class="org.springframework.scheduling.quartz.JobDetailFactoryBean">
+		<property name="jobClass" value="com.ccjt.ejy.web.quartz.job.DanWeiPicInfoJob" />
+	</bean>
+	
+	<bean name="projectType_job_Trigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="projectType_job" />
+		<property name="startDelay" value="2500" />
+		<property name="repeatInterval" value="720000" /><!-- 6小时 -->
+	</bean>
+	
+	<bean name="indexJobTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="indexCache_SyncJob" />
+		<property name="startDelay" value="3000" />
+		<property name="repeatInterval" value="70000" />
+	</bean>
+	
+	<bean name="zbcgJobTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="zbcgSyncJob" />
+		<property name="startDelay" value="1500" />
+		<property name="repeatInterval" value="600000" />
+	</bean>
+
+	<bean name="cityJobTrigger"
+		  class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="citySyncJob" />
+		<property name="startDelay" value="1500" />
+		<property name="repeatInterval" value="360000" />
+	</bean>
+	
+	<!-- 缩略图生成 -->
+	<bean name="picJobTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="picSyncJob" />
+		<property name="startDelay" value="2000" />
+		<property name="repeatInterval" value="50000" />
+	</bean>
+	
+	<!-- 首页竞价大厅 -->
+	<bean name="JJDTJobTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="JJDTSyncJob" />
+		<property name="startDelay" value="1000" />
+		<property name="repeatInterval" value="60000" />
+	</bean>
+	
+	<bean name="infomain_jygg_v2_SyncJobTrigger"
+		class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="infomain_jygg_v2_SyncJob" />
+		<property name="startDelay" value="1500" />
+		<property name="repeatInterval" value="240000" />
+	</bean>
+	
+	<bean name="LogoJobTrigger"
+		  class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+		<property name="jobDetail" ref="LogoSyncJob" />
+		<property name="startDelay" value="1000" />
+		<property name="repeatInterval" value="600000" /><!--5分钟-->
+	</bean>
+	<!--
+  	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			    <ref bean="projectType_job_Trigger" />
+			    <ref bean="indexJobTrigger" />
+				<ref bean="cityJobTrigger" />
+				
+				<ref bean="picJobTrigger" />
+				
+				<ref bean="JJDTJobTrigger" />
+				<ref bean="infomain_jygg_v2_SyncJobTrigger" />
+				<ref bean="LogoJobTrigger" />
+				<ref bean="zbcgJobTrigger" />
+			</list>
+		</property>
+	</bean> 
+	-->
+</beans>

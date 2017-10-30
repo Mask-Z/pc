@@ -1,0 +1,8 @@
+手机版会员分离：
+会员报名相关controller：
+	Logincontroller ：会员登陆
+	Projectsigncontroller :项目列表、会员报名
+	Regcontroller：会员注册
+	Uploadcontroller：报名时附件上传
+	
+新建一个java项目hy-sdk。
