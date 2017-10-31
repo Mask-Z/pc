@@ -652,7 +652,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </c:choose>
                 <!-- 如报名结束，则CLASS增加over -->
                 <c:choose>
-                    <c:when test="${info.projectstyle =='房地产'}">
+                    <c:when test="${!is_login}"><!--未登录的要先登录-->
+                        <a href="javascript:void(0);" class="financing-btn ejy_huiyuan_bm" id="${info.project_no }">在线贷款申请</a>
+                    </c:when>
+                    <c:when test="${is_login and is_lendMoney}"><!--已登录,用户类型不同,弹出的表单不同-->
                         <a href="javascript:void(0);" class="financing-btn" id="financing-btn">在线贷款申请</a>
                     </c:when>
                     <c:otherwise>

@@ -446,6 +446,17 @@ public class CqjyController extends BaseController{
 	     List<String> hotLabelNameList=ns.getHotLabelName(gongGao.getInfoid());
 		 modelAndView.addObject("hotLabelNameList",hotLabelNameList);
 
+		 //是否可以在线申请贷款
+		 LoginAccount user=(LoginAccount)request.getSession().getAttribute("loginAccount");
+		 if (user == null){//用户未登录,弹出登录页面,登陆后需要刷新页面
+			 modelAndView.addObject("is_login",false);
+		 }else {
+			 boolean is_shenqing = ggs.is_shenQing(user, gongGao);//该用户是否已经申请过该项目的贷款
+			 modelAndView.addObject("is_login",true);
+			 modelAndView.addObject("zxdkApply",user);//根据登录人的danweiGuid查询他的申请信息,用于展示在申请的表单上
+			 modelAndView.addObject("is_lendMoney", ggs.is_lendMoney(gongGao, request,is_shenqing));
+		 }
+
 		 //30秒视觉区
 		 modelAndView.addObject("optesthesiaContent",cqjyS.optesthesiaContent(gg));
 		 //页面头部

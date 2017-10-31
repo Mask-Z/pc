@@ -5,11 +5,14 @@ import static com.ccjt.ejy.web.commons.JDBC.jdbc;
 import java.util.Map;
 
 import com.ccjt.ejy.web.vo.GongGao;
+import com.ccjt.ejy.web.vo.LoginAccount;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.ccjt.ejy.web.enums.ProjectType;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * 公告业务逻辑类
@@ -113,6 +116,38 @@ public class GongGaoService {
 			}
 		} catch (Exception e) {
 			log.error("判断是否显示30秒展示区异常:",e);
+			e.printStackTrace();
+			f =false;
+		}
+		return f;
+	}
+
+    public boolean is_lendMoney(GongGao gongGao, HttpServletRequest request, boolean is_shenqing) {
+		boolean f=false;
+		if (!is_shenqing) {//该项目未被改用户申请过贷款
+			if (StringUtils.isNotBlank(gongGao.getProjectstyle()) && gongGao.getProjectstyle().equals("房地产")) {//房产项目
+				if (StringUtils.isNotBlank(gongGao.getGuapaiprice()) && Float.parseFloat(gongGao.getGuapaiprice()) > 1000000 && Float.parseFloat(gongGao.getGuapaiprice()) < 10000000) {//项目挂牌金额100W~1000W
+					if (gongGao.getStatus() != null && (gongGao.getStatus() != 0 || gongGao.getStatus() != 1 || gongGao.getStatus() != 4)) {//只有项目状态为未开始、报名中、竞价中才可以申请
+						f = true;
+					}
+				}
+			}
+		}
+		return f;
+    }
+
+	/**
+	 * 用户是否已经申请过该项目的贷款
+	 * @param user
+	 * @param gongGao
+	 * @return
+	 */
+	public boolean is_shenQing(LoginAccount user, GongGao gongGao) {
+		boolean f;
+		try {
+			f = jdbc.getInteger("select count(*) as cot from daikuanshenqingbiao where danweiguid ='" + user.getDanWeiGuid() + "' and projectguid='"+gongGao.getInfoid()+"'") >= 1;//表名待定
+		} catch (Exception e) {
+			log.error("判断用户是否申请过该项目异常:",e);
 			e.printStackTrace();
 			f =false;
 		}
