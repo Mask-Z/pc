@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.ccjt.ejy.web.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -31,11 +32,6 @@ import com.ccjt.ejy.web.commons.NetworkUtil;
 import com.ccjt.ejy.web.commons.cache.DBCacheManage;
 import com.ccjt.ejy.web.commons.cache.RedisKeys;
 import com.ccjt.ejy.web.enums.CQYWType;
-import com.ccjt.ejy.web.service.CqjyService;
-import com.ccjt.ejy.web.service.GongGaoService;
-import com.ccjt.ejy.web.service.IndexService;
-import com.ccjt.ejy.web.service.NewsService;
-import com.ccjt.ejy.web.service.PicService;
 import com.ccjt.ejy.web.service.back.EHelpService;
 import com.ccjt.ejy.web.service.back.QuestionService;
 import com.ccjt.ejy.web.vo.BaoJia;
@@ -453,7 +449,8 @@ public class CqjyController extends BaseController{
 		 }else {
 			 boolean is_shenqing = ggs.is_shenQing(user, gongGao);//该用户是否已经申请过该项目的贷款
 			 modelAndView.addObject("is_login",true);
-			 modelAndView.addObject("zxdkApply",user);//根据登录人的danweiGuid查询他的申请信息,用于展示在申请的表单上
+			 ZxdkApplyService zxdkApplyService=new ZxdkApplyService();
+			 modelAndView.addObject("zxdkApply",zxdkApplyService.getZxdkApply(user.getDanWeiGuid()));//根据登录人的danweiGuid查询他的申请信息,用于展示在申请的表单上
 			 modelAndView.addObject("is_lendMoney", ggs.is_lendMoney(gongGao, request,is_shenqing));
 		 }
 

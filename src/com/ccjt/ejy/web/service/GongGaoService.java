@@ -145,7 +145,7 @@ public class GongGaoService {
 	public boolean is_shenQing(LoginAccount user, GongGao gongGao) {
 		boolean f;
 		try {
-			f = jdbc.getInteger("select count(*) as cot from daikuanshenqingbiao where danweiguid ='" + user.getDanWeiGuid() + "' and projectguid='"+gongGao.getInfoid()+"'") >= 1;//表名待定
+			f = jdbc.getInteger("select count(*) as cot from online_loan_apply where user_id ='" + user.getDanWeiGuid() + "' and infoid='"+gongGao.getInfoid()+"'") >= 1;
 		} catch (Exception e) {
 			log.error("判断用户是否申请过该项目异常:",e);
 			e.printStackTrace();

@@ -21,7 +21,7 @@ public class ZxdkApplyController {
 
     private ZxdkApplyService zxdkApplyService=new ZxdkApplyService();
     /**
-     * 保存申请记录
+     * 保存申请记录(初审)
      * @param zxdkApply
      * @param request
      * @return
@@ -29,9 +29,18 @@ public class ZxdkApplyController {
      */
     @RequestMapping(value = "/saveApplyInformation", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> saveApplyInformation(ZxdkApply zxdkApply, HttpServletRequest request) throws Exception {
+    public Map<String,Object> saveApplyInformation_first(ZxdkApply zxdkApply, HttpServletRequest request) throws Exception {
         Map<String,Object> map=new HashMap<String,Object>();
-        map=zxdkApplyService.save(zxdkApply);
+        if (zxdkApply!=null){
+            if (zxdkApply.getMember_type().equals("0")){//单位类型
+                map=zxdkApplyService.saveCompany(zxdkApply);
+            }else if (zxdkApply.getMember_type().equals("1")){//个人类型
+                map=zxdkApplyService.saveIndividual(zxdkApply);
+            }else{
+                map.put("code", -1);
+                map.put("msg", "没有该用户类型!");
+            }
+        }
         return map;
     }
 
@@ -48,7 +57,7 @@ public class ZxdkApplyController {
      */
 
     public Object updateZxdkApply(HttpServletRequest request,ZxdkApply zxdkApply){
-
+        zxdkApplyService.updateZxdkApply(zxdkApply);
         return null;
     }
 }
