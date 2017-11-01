@@ -19,26 +19,27 @@ public class ZxdkApplyLogService {
      * 保存审核记录,每更新一次状态都会插入一条记录
      *
      * @param log
-     * @param apply_id       用户申请表id
      * @param operation_name 跟单人员登录名
      * @return
      */
-    public Map<String, Object> saveIndividual(ZxdkApplyLog log, int apply_id, String operation_name) {
+    public Map<String, Object> saveIndividual(ZxdkApplyLog log, String operation_name) {
         Map<String, Object> result = new HashMap<String, Object>();
-        String sql = "insert into [web2.0].dbo.online_loan_apply_log(apply_id,audit_status,audit_result,operation_time,operation_name,remark,apply_jeqr) values(?,?,?,?,?,?,?)";
+        String sql = "insert into [web2.0].dbo.online_loan_apply_log(apply_id,audit_status,audit_result,operation_time,operation_name,remark,apply_jkjeqr) values(?,?,?,?,?,?,?)";
         try {
-            jdbc.insert(sql, apply_id, log.getAudit_status(), log.getAudit_result(), new Date(), operation_name, log.getRemark(), log.getApply_jeqr());
-            result.put("code", 0);
+            jdbc.insert(sql, log.getApply_id(), log.getAudit_status(), log.getAudit_result(), new Date(), operation_name, log.getRemark(), log.getApply_jkjeqr());
+            result.put("code", "0");
             result.put("msg", "保存成功");
+            ConnectionFactory.commit();
         } catch (Exception e) {
             e.printStackTrace();
-            result.put("code", 1);
+            result.put("code", "1");
             result.put("msg", "保存失败!");
             ConnectionFactory.rollback();
         }
         if (result.get("code").equals("0")) {//保存成功需要更新申请表
             try {
-                jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", log.getAudit_status() + 1, log.getAudit_result(), new Date(), apply_id);
+                jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", log.getAudit_status(), log.getAudit_result(), new Date(), log.getApply_id());
+                ConnectionFactory.commit();
             } catch (Exception e) {
                 e.printStackTrace();
                 ConnectionFactory.rollback();

@@ -11,7 +11,7 @@ public class ZxdkApplyLog {
     private String operation_time;//该审核记录操作时间
     private String operation_name;//该审核记录操作人名称
     private String remark;//审核备注
-    private String apply_jeqr;//借款额度确认
+    private String apply_jkjeqr;//借款额度确认
 
     public int getId() {
         return id;
@@ -69,11 +69,11 @@ public class ZxdkApplyLog {
         this.remark = remark;
     }
 
-    public String getApply_jeqr() {
-        return apply_jeqr;
+    public String getApply_jkjeqr() {
+        return apply_jkjeqr;
     }
 
-    public void setApply_jeqr(String apply_jeqr) {
-        this.apply_jeqr = apply_jeqr;
+    public void setApply_jkjeqr(String apply_jkjeqr) {
+        this.apply_jkjeqr = apply_jkjeqr;
     }
 }
