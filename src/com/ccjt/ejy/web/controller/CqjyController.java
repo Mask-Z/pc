@@ -450,8 +450,8 @@ public class CqjyController extends BaseController{
 			 boolean is_shenqing = ggs.is_shenQing(user, gongGao);//该用户是否已经申请过该项目的贷款
 			 modelAndView.addObject("is_login",true);
 			 ZxdkApplyService zxdkApplyService=new ZxdkApplyService();
-			 modelAndView.addObject("zxdkApply",zxdkApplyService.getZxdkApply(user.getDanWeiGuid()));//根据登录人的danweiGuid查询他的申请信息,用于展示在申请的表单上
-			 modelAndView.addObject("is_lendMoney", ggs.is_lendMoney(gongGao, request,is_shenqing));
+			 modelAndView.addObject("zxdkApply",zxdkApplyService.getZxdkApply(user.getDanWeiGuid(),gongGao.getInfoid()));//根据登录人的danweiGuid查询他的申请信息,用于展示在申请的表单上
+			 modelAndView.addObject("is_lendMoney", ggs.is_lendMoney(gg, request,is_shenqing));
 		 }
 
 		 //30秒视觉区

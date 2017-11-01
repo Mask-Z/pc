@@ -122,19 +122,40 @@ public class GongGaoService {
 		return f;
 	}
 
+	/**
+	 * 判断是否可以申请贷款
+	 * @param gongGao
+	 * @param request
+	 * @param is_shenqing
+	 * @return
+	 */
     public boolean is_lendMoney(GongGao gongGao, HttpServletRequest request, boolean is_shenqing) {
 		boolean f=false;
 		if (!is_shenqing) {//该项目未被改用户申请过贷款
-			if (StringUtils.isNotBlank(gongGao.getProjectstyle()) && gongGao.getProjectstyle().equals("房地产")) {//房产项目
-				if (StringUtils.isNotBlank(gongGao.getGuapaiprice()) && Float.parseFloat(gongGao.getGuapaiprice()) > 1000000 && Float.parseFloat(gongGao.getGuapaiprice()) < 10000000) {//项目挂牌金额100W~1000W
-					if (gongGao.getStatus() != null && (gongGao.getStatus() != 0 || gongGao.getStatus() != 1 || gongGao.getStatus() != 4)) {//只有项目状态为未开始、报名中、竞价中才可以申请
-						f = true;
+			if (getDayToBaomingEnd(gongGao) >= 3) {//申请时报名截止日期必须大于3个工作日
+				if (StringUtils.isNotBlank(gongGao.getProjectstyle()) && gongGao.getProjectstyle().equals("房地产")) {//房产项目
+					String guapaiprice = gongGao.getGuapaiprice();
+					float price = Float.parseFloat(guapaiprice.replace(",", ""));
+					if (StringUtils.isNotBlank(gongGao.getGuapaiprice()) && price > 1000000 && price < 10000000) {//项目挂牌金额100W~1000W
+						if (gongGao.getStatus_name() != null && (gongGao.getStatus_name().equals("未开始") || gongGao.getStatus_name().equals("报名中"))) {//只有项目状态为未开始、报名中、竞价中才可以申请
+							f = true;
+						}
 					}
 				}
 			}
 		}
 		return f;
     }
+
+	/**
+	 * 获取申请贷款时,距离报名截止的工作日(需要在报名截止前3个工作日提交申请)
+	 * @param gongGao
+	 * @return
+	 */
+	public int getDayToBaomingEnd(GongGao gongGao){
+    	//计算逻辑
+    	return 3;
+	}
 
 	/**
 	 * 用户是否已经申请过该项目的贷款
@@ -145,7 +166,7 @@ public class GongGaoService {
 	public boolean is_shenQing(LoginAccount user, GongGao gongGao) {
 		boolean f;
 		try {
-			f = jdbc.getInteger("select count(*) as cot from online_loan_apply where user_id ='" + user.getDanWeiGuid() + "' and infoid='"+gongGao.getInfoid()+"'") >= 1;
+			f = jdbc.getInteger("select count(*) as cot from [web2.0].dbo.online_loan_apply where user_id ='" + user.getDanWeiGuid() + "' and infoid='"+gongGao.getInfoid()+"'") >= 1;
 		} catch (Exception e) {
 			log.error("判断用户是否申请过该项目异常:",e);
 			e.printStackTrace();

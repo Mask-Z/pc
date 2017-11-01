@@ -1,12 +1,14 @@
 package com.ccjt.ejy.web.vo;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Date;
 
 /**
  * 在线贷款申请
  */
 public class ZxdkApply {
-    private String id;
+    private int id;
     private String infoid;//申请贷款的项目公告id
     private String user_id;//用户guid
     private String member_type;//会员类型  单位:0 个人:1
@@ -51,17 +53,64 @@ public class ZxdkApply {
     private String loaninfo_hkfs ;//还款方式
     private String loaninfo_zyhkly ;//还款来源
 
-    private String reviewinfo_shzt ;//审核状态,0：初审；1：补充资料；2：复审；3：合同签署；4：平台放款；5：过户抵押；6：放款审核
-    private String reviewinfo_shjg ;//申请结果,0：待审核；1：审核通过；2：审核不通过；3：撤销
+    private int reviewinfo_shzt ;//审核状态,0：初审；1：补充资料；2：复审；3：合同签署；4：平台放款；5：过户抵押；6：放款审核(0初审 1资料审核 2三方合同签署 3放款到监管账户 4过户抵押办理 5放款 )
+    private int reviewinfo_shjg ;//申请结果,0：待审核；1：审核通过；2：审核不通过；3：撤销 4已失效 5办理中 6已完成
     private Date create_time;//该记录创建时间
     private Date lastupdate_time;//该记录最后修改时间
     private String  weixin_number;//申请人微信号
 
-    public String getId() {
+    private String shenqingren;//申请人
+    private String lianxidianhua;//联系电话
+    private String create_time_str;//创建时间(字符串)
+    private String lastupdate_time_str;//上次修改时间(字符串)
+
+    public String getCreate_time_str() {
+        return create_time_str;
+    }
+
+    public void setCreate_time_str(String create_time_str) {
+        this.create_time_str = create_time_str;
+    }
+
+    public String getLastupdate_time_str() {
+        return lastupdate_time_str;
+    }
+
+    public void setLastupdate_time_str(String lastupdate_time_str) {
+        this.lastupdate_time_str = lastupdate_time_str;
+    }
+
+    public String getLianxidianhua() {
+        if ( StringUtils.isNotBlank(company_lxfs)){
+            lianxidianhua=company_lxfs;
+        }else{
+            lianxidianhua=individual_lxfs;
+        }
+        return lianxidianhua;
+    }
+
+    public void setLianxidianhua(String lianxidianhua) {
+        this.lianxidianhua = lianxidianhua;
+    }
+
+    public String getShenqingren() {
+        if (StringUtils.isNotBlank(individual_xm)){
+            shenqingren=individual_xm;
+        }else {
+            shenqingren=company_lxr;
+        }
+        return shenqingren;
+    }
+
+    public void setShenqingren(String shenqingren) {
+        this.shenqingren = shenqingren;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -369,19 +418,19 @@ public class ZxdkApply {
         this.loaninfo_zyhkly = loaninfo_zyhkly;
     }
 
-    public String getReviewinfo_shzt() {
+    public int getReviewinfo_shzt() {
         return reviewinfo_shzt;
     }
 
-    public void setReviewinfo_shzt(String reviewinfo_shzt) {
+    public void setReviewinfo_shzt(int reviewinfo_shzt) {
         this.reviewinfo_shzt = reviewinfo_shzt;
     }
 
-    public String getReviewinfo_shjg() {
+    public int getReviewinfo_shjg() {
         return reviewinfo_shjg;
     }
 
-    public void setReviewinfo_shjg(String reviewinfo_shjg) {
+    public void setReviewinfo_shjg(int reviewinfo_shjg) {
         this.reviewinfo_shjg = reviewinfo_shjg;
     }
 
