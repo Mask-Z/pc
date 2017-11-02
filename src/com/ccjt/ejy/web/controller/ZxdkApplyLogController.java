@@ -47,4 +47,21 @@ public class ZxdkApplyLogController {
         mv.setViewName("back/rzdk_add");
         return mv;
     }
+
+    /**
+     * 根据用户申请表的id查出该记录的所有审核日志
+     * @param request
+     * @param apply_id
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/ZxdkApplyLogList")
+    public ModelAndView getZxdkApplyLogList(HttpServletRequest request, String apply_id)
+            throws Exception {
+        ModelAndView mv = new ModelAndView();
+        Map<String, Object> result=zxdkApplyLogService.getZxdkApplyLogList(apply_id);
+        mv.addObject("result",result);
+        mv.setViewName("/back/rzdkLogList");
+        return mv;
+    }
 }

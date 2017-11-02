@@ -1,14 +1,11 @@
 package com.ccjt.ejy.web.service;
 
 import com.ccjt.ejy.web.commons.db.connection.ConnectionFactory;
-import com.ccjt.ejy.web.vo.ZxdkApply;
 import com.ccjt.ejy.web.vo.ZxdkApplyLog;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.ccjt.ejy.web.commons.JDBC.jdbc;
 
@@ -59,10 +56,30 @@ public class ZxdkApplyLogService {
         String sql = "select top 1 * from [web2.0].dbo.online_loan_apply_log where apply_id=? order by operation_time desc";
         ZxdkApplyLog zxdkApplyLog = null;
         try {
-            zxdkApplyLog = jdbc.bean(sql, ZxdkApplyLog.class,id);
+            zxdkApplyLog = jdbc.bean(sql, ZxdkApplyLog.class, id);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return zxdkApplyLog;
+    }
+
+    /**
+     * 根据用户申请表的id查出该记录的所有审核日志
+     * @param apply_id
+     * @return
+     */
+    public Map<String,Object> getZxdkApplyLogList(String apply_id) {
+        String sql = "select  operation_time as operation_time_str,* from [web2.0].dbo.online_loan_apply_log where apply_id=? ";
+        List<ZxdkApplyLog> logs=new ArrayList<>();
+        Map<String, Object> m = new HashMap<String, Object>();
+        try {
+            m.put("total", jdbc.getCount(sql,apply_id));
+            sql+=" order by operation_time asc";
+            logs=jdbc.beanList(sql,ZxdkApplyLog.class,apply_id);
+            m.put("rows", logs);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return m;
     }
 }
