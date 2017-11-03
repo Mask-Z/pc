@@ -1,10 +1,14 @@
 package com.ccjt.ejy.web.controller;
 
+import com.ccjt.ejy.web.service.CqjyService;
+import com.ccjt.ejy.web.service.NewsService;
 import com.ccjt.ejy.web.service.ZxdkApplyLogService;
 import com.ccjt.ejy.web.service.ZxdkApplyService;
+import com.ccjt.ejy.web.vo.GongGao;
 import com.ccjt.ejy.web.vo.OnlineLoans;
 import com.ccjt.ejy.web.vo.ZxdkApply;
 import com.ccjt.ejy.web.vo.ZxdkApplyLog;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,16 +58,25 @@ public class ZxdkApplyController {
     }
 
     @RequestMapping(value = "/ZxdkApplyForm")
-    public ModelAndView onlineLoansadd(Integer id, HttpServletRequest request) throws Exception {
+    public ModelAndView onlineLoansadd(Integer id, HttpServletRequest request,String type) throws Exception {
         ModelAndView mv = new ModelAndView();
         if (id != null) {
             ZxdkApply zxdkApply = zxdkApplyService.getZxdkApplyById(id);
             mv.addObject("zxdkApply", zxdkApply);
-            ZxdkApplyLogService logService= new ZxdkApplyLogService();
-            ZxdkApplyLog zxdkApplyLog=logService.getZxdkApplyById(id);
-            mv.addObject("zxdkApplyLog", zxdkApplyLog);
+            //带出所申请项目的详细信息
+            CqjyService cqjyS=new CqjyService();
+            GongGao gonggao = cqjyS.detail(zxdkApply.getInfoid());
+            mv.addObject("gonggao", gonggao);
+            //获取热点标签
+            NewsService ns=new NewsService();
+            List<String> hotLabelNameList=ns.getHotLabelName(gonggao.getInfoid());
+            mv.addObject("hotLabelNameList",hotLabelNameList);
         }
-        mv.setViewName("/back/rzdk_add");
+        if (StringUtils.isNotBlank(type)&&type.equals("iframe")){
+            mv.setViewName("/back/shenhe_form");
+        }else {
+            mv.setViewName("/back/rzdk_add");
+        }
         return mv;
     }
 

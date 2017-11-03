@@ -54,7 +54,7 @@ public class ZxdkApply {
     private String loaninfo_zyhkly ;//还款来源
 
     private int reviewinfo_shzt ;//审核状态,0：初审；1：材料审核；2：合同签署；3：放款监管；4：产权变更；5：线下打款；6：还款
-    private int reviewinfo_shjg ;//申请结果,-1:已失效 0：待绑定；1：待审核；2：未通过；3：已通过   4:不完备  5:已完备  6:待签署 7:已签署 8:待办理 9:已提交 10:已办理 11:待打款 12:已打款 13:当月未还 14:当月已还
+    private int reviewinfo_shjg ;//申请结果,-1:已失效 0：待绑定；1：待审核；2：未通过；3：已通过   4:不完备  5:已完备  6:待签署 7:已签署 8:待放款 9:已放款 10:待办理 11:已提交 12:已办理  13:待打款 14:已打款 15:当月未还 16:当月已还
     private Date create_time;//该记录创建时间
     private Date lastupdate_time;//该记录最后修改时间
     private String  weixin_number;//申请人微信号

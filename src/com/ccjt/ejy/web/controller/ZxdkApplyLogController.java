@@ -43,8 +43,8 @@ public class ZxdkApplyLogController {
         User user= (User) request.getSession().getAttribute("sysuser");
         Map<String, Object> result= zxdkApplyLogService.saveIndividual(zxdkApplyLog,user.getLoginname());
         mv.addObject("msg", result.get("msg"));
-        mv.addObject("flag", result.get("flag"));//回传标记
-        mv.setViewName("back/rzdk_add");
+        mv.addObject("flag", "flag");//回传标记
+        mv.setViewName("back/shenhe_form");
         return mv;
     }
 

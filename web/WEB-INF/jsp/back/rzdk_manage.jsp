@@ -58,7 +58,7 @@ $(function(){
 			{field:'operation',title:'操作',width:80,align:'center',
 		        	formatter: function(value,row,index){
 		        		var str = "";
-						str += '<a href="javascript:;" style="color: green" onClick = "editZxdkApply('+row.id+');">查看</a>';
+						str += '<a href="javascript:;" style="color: green" onClick = "openNewTab('+row.id+');">查看</a>';
 		            	return str;
 		  			}
 		        },
@@ -73,14 +73,14 @@ $(function(){
 	});
 
 });
-function editZxdkApply(id){
-   	showWindow("#w1",{
-			title : "审核信息",
-			width : 900,
-			height : 600,
-			content:"<iframe src='system/ZxdkApplyForm?id="+id+"' style='width:100%;height:100%;' frameborder='0'></iframe>"
-	});
-}
+//function editZxdkApply(id){
+//   	showWindow("#w1",{
+//			title : "审核信息",
+//			width : 900,
+//			height : 600,
+//			content:"<iframe src='system/ZxdkApplyForm?id="+id+"' style='width:100%;height:100%;' frameborder='0'></iframe>"
+//	});
+//}
 
 function showZxdkApply(id){
     showWindow("#w1",{
@@ -89,6 +89,25 @@ function showZxdkApply(id){
         height : 600,
         content:"<iframe src='system/ZxdkApplyLogList?apply_id="+id+"' style='width:100%;height:100%;' frameborder='0'></iframe>"
     });
+}
+
+
+
+function openNewTab(id){
+
+    var jq = top.jQuery;
+
+    if (jq("#tabs").tabs('exists', '贷款申请详情')){
+        jq("#tabs").tabs('select', '贷款申请详情');
+    } else {
+        var url='system/ZxdkApplyForm?id='+id;
+        var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:100%;"></iframe>';
+        jq("#tabs").tabs('add',{
+            title:'贷款申请详情',
+            content:content,
+            closable:true
+        });
+    }
 }
 
 </script>

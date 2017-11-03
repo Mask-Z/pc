@@ -22,8 +22,9 @@ public class ZxdkApplyLogService {
     public Map<String, Object> saveIndividual(ZxdkApplyLog log, String operation_name) {
         Map<String, Object> result = new HashMap<String, Object>();
         String sql = "insert into [web2.0].dbo.online_loan_apply_log(apply_id,audit_status,audit_result,operation_time,operation_name,remark,apply_jkjeqr) values(?,?,?,?,?,?,?)";
+        Date saveDate=new Date();
         try {
-            jdbc.insert(sql, log.getApply_id(), log.getAudit_status(), log.getAudit_result(), new Date(), operation_name, log.getRemark(), log.getApply_jkjeqr());
+            jdbc.insert(sql, log.getApply_id(), log.getAudit_status(), log.getAudit_result(), saveDate, operation_name, log.getRemark(), log.getApply_jkjeqr());
             result.put("code", "0");
             result.put("msg", "保存成功");
             ConnectionFactory.commit();
@@ -35,7 +36,7 @@ public class ZxdkApplyLogService {
         }
         if (result.get("code").equals("0")) {//保存成功需要更新申请表
             try {
-                jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", log.getAudit_status(), log.getAudit_result(), new Date(), log.getApply_id());
+                jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", log.getAudit_status(), log.getAudit_result(), saveDate, log.getApply_id());
                 ConnectionFactory.commit();
             } catch (Exception e) {
                 e.printStackTrace();
