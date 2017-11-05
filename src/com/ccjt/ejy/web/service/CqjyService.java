@@ -23,7 +23,73 @@ public class CqjyService {
 	
 	private static Logger log = LogManager.getLogger(CqjyService.class);
 	private NewsService ns = new NewsService();
-	
+
+	/**
+	 * 获取8条精品房源
+	 * @param city_id
+	 * @return
+	 */
+	public List<GongGao> jpfyList(String city_id){
+		List<GongGao> jpfyList = new ArrayList<>();
+		try {
+			String commonSql = " and shi like ? ";
+			String sheng_code = "";
+			String shi_code = "";
+			if(StringUtils.isNotBlank(city_id)){
+				shi_code = city_id.substring(0,4)+"__";
+				sheng_code = city_id.substring(0,2)+"____";
+			}
+			int fc = 0;//用于累计市级查询到的各类产权数据的数量
+			String sql="select * from ( SELECT TOP " + (8-fc) + "  * FROM  (   SELECT    (     CASE     WHEN (      getdate() >= gonggaofromdate      AND getdate() <= gonggaotodate      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      1     WHEN (      getdate() >= jjia.BeginDate      AND getdate() <= CAST (jjia.PlanEndTime AS datetime)      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      2     WHEN (getdate() < gonggaofromdate) THEN      3     ELSE      4     END    ) AS ordertype,    HotLabelName hotLabelName_s,    oldprojectguid,    ijv2.BelongXiaQuCode AS XiaQuCode,    projectcontroltype,    ijv2.projectguid,    ijv2.AllowMoreJqxt,    jjia_status,    shengname,    shiname,    zt,    ispllr,    jygg_guid infoid,    ProjectNum,    Title,    Categoryname ProjectStyle,    ijv2.jingjiafangshi,    ijv2.isfrompricexs,    cjgg_guid,    gonggaotodate,    gonggaofromdate,    jingjia_start,    jingjia_end,    Categorynum,    click,    guapaiprice,    IsMianY,    zzkg_zztype,    zzkg_guapaitype,    zzkg_guapaiprice,    zzkg_guapaidj   FROM    infomain_jygg_v2 ijv2   LEFT JOIN JQXT_ProjectInfo jjia ON ijv2.ProjectGuid = jjia.ProjectGuid   WHERE    1 = 1 "+commonSql+"    AND Categorynum = '001001001'     ) AS temp_1 where  ordertype in (1,2,3) ORDER BY ordertype ASC) as temp_111 OUTER APPLY (select top 1 path titlepic from [web2.0].dbo.web_gonggao_pic pic where pic.guid=temp_111.infoid and pic.type='JY01') temp_3 ";
+
+
+			if(StringUtils.isNotBlank(shi_code)){//处理市级数据
+
+				jpfyList.addAll(jdbc.beanList(sql,GongGao.class,shi_code,shi_code,shi_code,shi_code,shi_code,shi_code,shi_code,shi_code,shi_code,shi_code));
+
+				fc =jpfyList.size();
+
+			}
+
+			if(StringUtils.isNotBlank(sheng_code) && !sheng_code.equals(shi_code)){	//累加省级数据,标的中有所在地只选择到省的,这个时候,shi=sheng的值
+
+				commonSql = " and shi like ? and shi not like ?";
+
+				sql = "select * from ( SELECT TOP " + (8-fc) + "  * FROM  (   SELECT    (     CASE     WHEN (      getdate() >= gonggaofromdate      AND getdate() <= gonggaotodate      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      1     WHEN (      getdate() >= jjia.BeginDate      AND getdate() <= CAST (jjia.PlanEndTime AS datetime)      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      2     WHEN (getdate() < gonggaofromdate) THEN      3     ELSE      4     END    ) AS ordertype,    HotLabelName hotLabelName_s,    oldprojectguid,    ijv2.BelongXiaQuCode AS XiaQuCode,    projectcontroltype,    ijv2.projectguid,    ijv2.AllowMoreJqxt,    jjia_status,    shengname,    shiname,    zt,    ispllr,    jygg_guid infoid,    ProjectNum,    Title,    Categoryname ProjectStyle,    ijv2.jingjiafangshi,    ijv2.isfrompricexs,    cjgg_guid,    gonggaotodate,    gonggaofromdate,    jingjia_start,    jingjia_end,    Categorynum,    click,    guapaiprice,    IsMianY,    zzkg_zztype,    zzkg_guapaitype,    zzkg_guapaiprice,    zzkg_guapaidj   FROM    infomain_jygg_v2 ijv2   LEFT JOIN JQXT_ProjectInfo jjia ON ijv2.ProjectGuid = jjia.ProjectGuid   WHERE    1 = 1 "+commonSql+"    AND Categorynum = '001001001'     ) AS temp_1 where  ordertype in (1,2,3) ORDER BY ordertype ASC) as temp_111 OUTER APPLY (select top 1 path titlepic from [web2.0].dbo.web_gonggao_pic pic where pic.guid=temp_111.infoid and pic.type='JY01') temp_3 ";
+
+				jpfyList.addAll(jdbc.beanList(sql,GongGao.class,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code,sheng_code,shi_code));
+
+				fc =jpfyList.size();
+
+			}
+			//累加全国数据
+			{
+				if(StringUtils.isNotBlank(sheng_code)){
+					commonSql = " and shi not like ?";
+				}else{
+					commonSql = "";
+				}
+				sql ="select * from ( SELECT TOP " + (8-fc) + "  * FROM  (   SELECT    (     CASE     WHEN (      getdate() >= gonggaofromdate      AND getdate() <= gonggaotodate      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      1     WHEN (      getdate() >= jjia.BeginDate      AND getdate() <= CAST (jjia.PlanEndTime AS datetime)      AND (       cjgg_guid IS NULL       OR cjgg_guid = ''      )      AND (       projectcontroltype NOT IN ('1', '2')       OR projectcontroltype IS NULL      )      AND (       jjia_status IS NULL       OR jjia_status != 3      )     ) THEN      2     WHEN (getdate() < gonggaofromdate) THEN      3     ELSE      4     END    ) AS ordertype,    HotLabelName hotLabelName_s,    oldprojectguid,    ijv2.BelongXiaQuCode AS XiaQuCode,    projectcontroltype,    ijv2.projectguid,    ijv2.AllowMoreJqxt,    jjia_status,    shengname,    shiname,    zt,    ispllr,    jygg_guid infoid,    ProjectNum,    Title,    Categoryname ProjectStyle,    ijv2.jingjiafangshi,    ijv2.isfrompricexs,    cjgg_guid,    gonggaotodate,    gonggaofromdate,    jingjia_start,    jingjia_end,    Categorynum,    click,    guapaiprice,    IsMianY,    zzkg_zztype,    zzkg_guapaitype,    zzkg_guapaiprice,    zzkg_guapaidj   FROM    infomain_jygg_v2 ijv2   LEFT JOIN JQXT_ProjectInfo jjia ON ijv2.ProjectGuid = jjia.ProjectGuid   WHERE    1 = 1 "+commonSql+"    AND Categorynum = '001001001'     ) AS temp_1 where  ordertype in (1,2,3) ORDER BY ordertype ASC) as temp_111 OUTER APPLY (select top 1 path titlepic from [web2.0].dbo.web_gonggao_pic pic where pic.guid=temp_111.infoid and pic.type='JY01') temp_3 ";
+				if(StringUtils.isNotBlank(sheng_code)){
+					jpfyList.addAll(jdbc.beanList(sql,GongGao.class,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code,sheng_code));
+				}else{
+					jpfyList.addAll(jdbc.beanList(sql,GongGao.class));
+				}
+
+			}
+		} catch (Exception e) {
+			log.error("获取首页产权交易数据出错:" ,e);
+			e.printStackTrace();
+		}
+		if(jpfyList!=null){
+			CqjyService cqjyService=new CqjyService();
+			for(GongGao gg : jpfyList){
+				gg.setClick(gg.getClick()+cqjyService.getPVCount(gg.getInfoid()));
+			}
+		}
+		return jpfyList;
+	}
+
 	public Map<String,Object> cqjyList(GongGao ggao,String startPrice,String endPrice,String orderType,String sessionCity,Integer page,Integer rows,String pagename){
 		Map<String,Object> m = new HashMap<String, Object>();
 		List<GongGao> list = null;

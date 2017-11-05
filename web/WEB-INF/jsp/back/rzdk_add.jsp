@@ -91,7 +91,7 @@
                 <td>${zxdkApply.loaninfo_zyhkly}</td>
             </tr>
 
-            <c:if test="${zxdkApply.member_type eq 0}"><!--个人信息-->
+            <c:if test="${zxdkApply.member_type eq 1}"><!--个人信息-->
             <tr >
                 <td colspan="3" style="border-bottom: 1px #E7E7E7 solid;"></td>
             </tr>
@@ -158,7 +158,7 @@
                 <td> </td>
             </tr>
             </c:if>
-            <c:if test="${zxdkApply.member_type eq 1}"><!--单位信息-->
+            <c:if test="${zxdkApply.member_type eq 0}"><!--单位信息-->
             <tr >
                 <td colspan="3" style="border-bottom: 1px #E7E7E7 solid;"></td>
             </tr>

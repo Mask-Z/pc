@@ -14,7 +14,6 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.ccjt.ejy.web.service.*;
 import org.apache.commons.lang3.StringUtils;
@@ -50,7 +49,13 @@ public class CqjyController extends BaseController{
 	 NewsService ns = new NewsService();
 	 GongGaoService ggs = new GongGaoService();
 	IndexService indexService = new IndexService();
-
+	@RequestMapping(value = "/jpfyList")
+	@ResponseBody
+	public List<GongGao> jpfyList(HttpServletRequest request, HttpServletResponse response) {
+		Map<String,String> areaCookies=indexService.areaCookies(request,response);
+		String city_id =areaCookies.get("cityCodeCookie");
+		return cqjyS.jpfyList(city_id);
+	}
 //	@RequestMapping("getPLGPStatus")
 //	@ResponseBody
 //	public Map<String, Object> getPLGPStatus(String projectguid) {
