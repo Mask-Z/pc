@@ -84,7 +84,7 @@ $(function(){
 //        }
 //    });
 	$("#entrust_search").click(function (){
-	    var search_start=$("#search_start").datebox("getValue"); ;
+	    var search_start=$("#search_start").datebox("getValue");
 	    var search_end=$("#search_end").datebox('getValue');
 	    var search_status=$("#search_status").val();
 		$("#onlineLoansList_table").datagrid("load",{

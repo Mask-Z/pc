@@ -49,12 +49,19 @@ public class ZxdkApplyLogService {
     public void updateInfoAndSendMessage(ZxdkApplyLog log,Date saveDate){
         try {
             ZxdkApply zxdkApply=jdbc.bean("select * from [web2.0].dbo.online_loan_apply where id =? ", ZxdkApply.class,log.getApply_id());
+            Map<String,Integer> map=jinDuAndResult(log,zxdkApply);
+            Integer jindu=map.get("jindu");//进度
+            Integer jieguo=map.get("jieguo");//审核结果
 
-            jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", log.getAudit_status(), log.getAudit_result(), saveDate, log.getApply_id());
+            jdbc.execute("update [web2.0].dbo.online_loan_apply set reviewinfo_shzt=?,reviewinfo_shjg=?,lastupdate_time=? where id=?", jindu, jieguo, saveDate, log.getApply_id());
             ConnectionFactory.commit();
+
+            String number=zxdkApply.getLianxidianhua();
+            System.out.println("电话号码: "+number);
+            //发送短信
             SendMessageService sendMessageService=new SendMessageService();
-            String result=sendMessageService.sendMessage("test","test",zxdkApply.getLianxidianhua(),"用户进度:"+zxdkApply.getReviewinfo_shzt()+"; 用户状态:"+zxdkApply.getReviewinfo_shjg());
-            System.out.println(result);
+            String result=sendMessageService.sendMessage("test","test",number,"用户进度:"+jindu+"; 用户状态:"+jieguo);
+            System.out.println("短信发送结果: "+result);
         } catch (Exception e) {
             e.printStackTrace();
             ConnectionFactory.rollback();
@@ -67,31 +74,28 @@ public class ZxdkApplyLogService {
      */
     public Map<String,Integer> jinDuAndResult(ZxdkApplyLog log,ZxdkApply zxdkApply){
         Map<String,Integer> map=new HashMap<>();
-        if (zxdkApply.getReviewinfo_shzt()==0){//初审
-            if (log.getAudit_result()==-1){//已失效
-                map.put("jindu",zxdkApply.getReviewinfo_shzt());
-                map.put("jieguo",log.getAudit_result());
-            }else if (log.getAudit_result()==0){//待绑定
-                map.put("jindu",zxdkApply.getReviewinfo_shzt());
-                map.put("jieguo",log.getAudit_result());
-            }else if (log.getAudit_result()==1){//待审核
-                map.put("jindu",zxdkApply.getReviewinfo_shzt());
-                map.put("jieguo",log.getAudit_result());
-            }else if (log.getAudit_result()==2){//未通过
-                map.put("jindu",zxdkApply.getReviewinfo_shzt());
-                map.put("jieguo",log.getAudit_result());
-            }else if (log.getAudit_result()==3){//已通过
-                map.put("jindu",zxdkApply.getReviewinfo_shzt()+1);//通过初审 进度更新为材料审核
-                map.put("jieguo",1);//通过初审 状态更新为待审核
-            }
-        }
+//        if (zxdkApply.getReviewinfo_shzt()==0){//初审
+//            if (log.getAudit_result()==-1){//已失效
+//                map.put("jindu",zxdkApply.getReviewinfo_shzt());
+//                map.put("jieguo",log.getAudit_result());
+//            }else if (log.getAudit_result()==0){//待绑定
+//                map.put("jindu",zxdkApply.getReviewinfo_shzt());
+//                map.put("jieguo",log.getAudit_result());
+//            }else if (log.getAudit_result()==1){//待审核
+//                map.put("jindu",zxdkApply.getReviewinfo_shzt());
+//                map.put("jieguo",log.getAudit_result());
+//            }else if (log.getAudit_result()==2){//未通过
+//                map.put("jindu",zxdkApply.getReviewinfo_shzt());
+//                map.put("jieguo",log.getAudit_result());
+//            }else if (log.getAudit_result()==3){//已通过
+//                map.put("jindu",zxdkApply.getReviewinfo_shzt()+1);//通过初审 进度更新为材料审核
+//                map.put("jieguo",1);//通过初审 状态更新为待审核
+//            }
+//        }
 
         if (zxdkApply.getReviewinfo_shzt()==7){//已完成整个流程
-            if (log.getAudit_result()==3){//
-                map.put("jindu",zxdkApply.getReviewinfo_shzt()+1);
-                map.put("jieguo",1);//
-            }else if (log.getAudit_result()==5){
-                map.put("jindu",7);
+            if (log.getAudit_result()==5){
+                map.put("jindu",zxdkApply.getReviewinfo_shzt());
                 map.put("jieguo",log.getAudit_result());//
             }else{
                 map.put("jindu",zxdkApply.getReviewinfo_shzt());

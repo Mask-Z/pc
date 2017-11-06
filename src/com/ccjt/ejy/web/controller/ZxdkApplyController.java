@@ -99,9 +99,9 @@ public class ZxdkApplyController {
 
     @RequestMapping(value = "/zxdkApplyList",method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> getZxdkApplyList(ZxdkApply zxdkApply , Integer page, Integer rows)
+    public Map<String, Object> getZxdkApplyList(ZxdkApply zxdkApply , Integer page, Integer rows,String search_start,String search_end,String keywords)
             throws Exception {
-        Map<String, Object> m = zxdkApplyService.getZxdkApplyList(zxdkApply, page, rows);
+        Map<String, Object> m = zxdkApplyService.getZxdkApplyList(zxdkApply, page, rows,search_start,search_end,keywords);
         return m;
     }
 }

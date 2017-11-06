@@ -33,6 +33,7 @@
     }
     $(function () {
         $("#rzdk_save").click(function () {
+//            var remark=$("#remark").val();
             if ($("#rzdk_addform").form('validate')) {
                 $("#rzdk_addform").submit();
             }
@@ -47,7 +48,7 @@
        onclick="javascript:parent.$('#w10').window('close');">取消</a>
     <div class="easyui-panel">
         <input id="id" type="hidden" name="apply_id" value="${zxdkApply.id }"/>
-        <input type="hidden" name="audit_status" value="${zxdkApply.id }"/>
+        <input type="hidden" name="audit_status" value="${zxdkApply.reviewinfo_shzt }"/>
         <br/><br/>
         <div style="margin-bottom:20px">
              <span style="padding-left: 5px">
@@ -60,6 +61,7 @@
             <c:if test="${zxdkApply.reviewinfo_shzt==4}"> value="产权变更" </c:if>
             <c:if test="${zxdkApply.reviewinfo_shzt==5}"> value="线下打款" </c:if>
             <c:if test="${zxdkApply.reviewinfo_shzt==6}"> value="还款" </c:if>
+            <c:if test="${zxdkApply.reviewinfo_shzt==7}"> value="流程已完成" </c:if>
                    data-options="readonly:true">
 
         </div>
@@ -150,11 +152,14 @@
                         <c:if test="${zxdkApply.reviewinfo_shjg==-1}">selected</c:if> >已失效
                 </option>
                 <option value="1"
-                        <c:if test="${zxdkApply.reviewinfo_shjg==1}">selected</c:if> >待打款
+                        <c:if test="${zxdkApply.reviewinfo_shjg==1}">selected</c:if> >当月未还
                 </option>
                 <option value="3"
-                        <c:if test="${zxdkApply.reviewinfo_shjg==3}">selected</c:if> >已打款
+                        <c:if test="${zxdkApply.reviewinfo_shjg==3}">selected</c:if> >当月已还
                 </option>
+                </c:if>
+                <c:if test="${zxdkApply.reviewinfo_shzt==7}"><!--完成整个流程-->
+                <option value="5">完成整个流程</option>
                 </c:if>
                 <%--0：初审；1：材料审核；2：合同签署；3：放款监管；4：产权变更；5：线下打款；6：还款--%>
                 <%---(-1 失效 0  待绑定微信  1   待..   2   未(不)...  3  已..  4.已提交产权变更)1:已失效 0：待绑定；1：待审核；2：未通过；3：已通过   4:不完备  5:已完备  6:待签署 7:已签署 8:待放款 9:已放款 10:待办理 11:已提交 12:已办理   13:待打款 14:已打款 15:当月未还 16:当月已还--%>
@@ -173,8 +178,8 @@
         <div style="margin-bottom:20px">
     <span style="padding-left: 5px">
     <label class="label-top">说明:</label> </span>
-            <input class="easyui-textbox" name="remark" style="width:50%; height:80px;"
-                   data-options="multiline:true,prompt:'请输入内容,最多50字'">
+            <input class="easyui-textbox" name="remark" style="width:50%; height:80px;" id="remark"
+                   data-options="multiline:true,prompt:'请输入内容,最多50字',required:true,missingMessage:'此项必输',validType:'length[1,50]'">
         </div>
     </div>
 </form>
@@ -184,19 +189,3 @@
 <script charset="utf-8" src="<%=basePath%>kindeditor-4.1.11/kindeditor-all.js"></script>
 <script charset="utf-8" src="<%=basePath%>kindeditor-4.1.11/lang/zh-CN.js"></script>
 <script charset="utf-8" src="<%=basePath%>kindeditor-4.1.11/plugins/code/prettify.js"></script>
-<script>
-    KindEditor.ready(function (K) {
-        var editor1 = K.create('textarea[name="remark"]', {
-            cssPath: '<%=basePath%>kindeditor-4.1.11/plugins/code/prettify.css',
-            uploadJson: '<%=basePath%>fileUpload',
-            fileManagerJson: '<%=basePath%>fileManager',
-            allowFileManager: true,
-            afterCreate: function () {
-            },
-            afterBlur: function () {
-                this.sync();
-            }
-        });
-        prettyPrint();
-    });
-</script>

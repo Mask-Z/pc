@@ -27,30 +27,92 @@ $(function(){
 						} else if (value===1) {
 							return "<font color='blue'>资料审核</font>";
                         } else if (value===2) {
-                            return "<font color='blue'>三方合同签署</font>";
+                            return "<font color='blue'>合同签署</font>";
                         } else if (value===3) {
-                            return "<font color='blue'>放款到监管账户</font>";
+                            return "<font color='blue'>放款监管</font>";
                         } else if (value===4) {
-                            return "<font color='blue'>过户抵押办理</font>";
+                            return "<font color='blue'>产权变更</font>";
 						}else if (value===5) {
-                            return "<font color='green'>放款</font>";
+                            return "<font color='blue'>线下打款</font>";
+                        }else if (value===6) {
+                            return "<font color='blue'>还款</font>";
+                        }else if (value===7) {
+                            return "<font color='green'>流程已完成</font>";
                         }
 					}
 		        },
             {field:'reviewinfo_shjg',title:'状态',width:80,align:'left',
                 formatter: function(value,row,index){
-                    if (value===0){
-                        return "待审核";
-                    } else if (value===1) {
-                        return "审核通过";
-                    } else if (value===2) {
-                        return "审核不通过";
-                    } else if (value===3) {
-                        return "撤销";
-                    } else if (value===4) {
-                        return "已失效";
-                    }else if (value===5) {
-                        return "已完成";
+                	if(row.reviewinfo_shzt===0){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===0) {
+                            return "待绑定";
+                        } else if (value===1) {
+                            return "待审核";
+                        }else if (value===2) {
+                            return "未通过";
+                        } else if (value===3) {
+                            return "已通过";
+                        }
+					}else if (row.reviewinfo_shzt===1){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "待审核";
+                        }else if (value===2) {
+                            return "不完备";
+                        } else if (value===3) {
+                            return "已完备";
+                        }
+					}else if(row.reviewinfo_shzt===2){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "待签署";
+                        } else if (value===3) {
+                            return "已签署";
+                        }
+					}else if(row.reviewinfo_shzt===3){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "待放款";
+                        } else if (value===3) {
+                            return "已放款";
+                        }
+                    }else if(row.reviewinfo_shzt===4){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "待办理";
+                        } else if (value===3) {
+                            return "已办理";
+                        }else if (value===4) {
+                            return "已提交";
+                        }
+                    }else if(row.reviewinfo_shzt===5){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "待打款";
+                        } else if (value===3) {
+                            return "已打款";
+                        }
+                    }else if(row.reviewinfo_shzt===6){
+                        if (value===-1){
+                            return "已失效";
+                        } else if (value===1) {
+                            return "当月未还";
+                        } else if (value===3) {
+                            return "当月已还";
+                        }
+                    }else if(row.reviewinfo_shzt===7){
+                        if (value===5){
+                            return "已完成";
+                        } else {
+                            return "错误代码";
+                        }
                     }
                 }
             },
@@ -69,7 +131,8 @@ $(function(){
                     return str;
                 }
             }
-		    ]]
+		    ]],
+        toolbar:"#rzdkmanage_tool"
 	});
 
 });
@@ -109,10 +172,61 @@ function openNewTab(id){
         });
     }
 }
+$("#zxdk_search").click(function (){
+    var search_start=$("#search_start").datebox("getValue");
+    var search_end=$("#search_end").datebox('getValue');
+    var search_status=$("#search_status").val();
+    $("#rzdkList_table").datagrid("load",{
+        keywords:$("#search_zxdktitle").val(),
+        reviewinfo_shzt:search_status,
+        search_start:search_start,
+        search_end:search_end
+    });
+});
 
+$("#cancel_search").click(function (){
+    $('#search_start').datebox('setValue', '');
+    $('#search_end').datebox('setValue', '');
+    $("#search_status").val("");
+    $("#search_zxdktitle").val("");
+});
 </script>
 	<table id="rzdkList_table"  >
 
 	</table>
 
+
+<div id="rzdkmanage_tool" style="padding:3px;height:auto">
+	<div style="padding: 2px">
+		申请日期&nbsp;&nbsp;<input id="search_start" type="text" class="easyui-datebox" required="required">
+		&nbsp;-&nbsp;<input id="search_end" type="text" class="easyui-datebox" required="required">
+	</div>
+	<%--0：初审；1：材料审核；2：合同签署；3：放款监管；4：产权变更；5：线下打款；6：还款 7.已完成整个流程--%>
+	<div style="padding: 2px">
+		状态&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <select type="text" id="search_status">
+		<option value="">请选择</option>
+		<option value="0">初审</option>
+		<option value="1">材料审核</option>
+		<option value="2">合同签署</option>
+		<option value="3">放款监管</option>
+		<option value="4">产权变更</option>
+		<option value="5">线下打款</option>
+		<option value="6">还款</option>
+		<option value="7">已完成整个流程</option>
+	</select>
+	</div>
+	<div style="padding: 2px">
+		关键词&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="search_zxdktitle" placeholder=" 标的名称/姓名/电话号码">
+		<a href="javascript:;" class="easyui-linkbutton" iconCls="icon-search" plain="true"
+		   id="zxdk_search">查询</a>
+		<a href="javascript:;" class="easyui-linkbutton" iconCls="icon-cancel" plain="true"
+		   id="cancel_search">清除</a>
+
+	</div>
+	<%--<div>--%>
+	<%--<a href="javascript:;" class="easyui-linkbutton" iconCls="icon-cancel" plain="true"--%>
+	<%--id="onlineLoans_del">删除</a>--%>
+
+	<%--</div>--%>
+</div>
 

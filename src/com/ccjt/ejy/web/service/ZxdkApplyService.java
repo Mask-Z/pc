@@ -1,14 +1,13 @@
 package com.ccjt.ejy.web.service;
 
 import com.ccjt.ejy.web.commons.db.connection.ConnectionFactory;
+import com.ccjt.ejy.web.vo.OnlineLoans;
 import com.ccjt.ejy.web.vo.ZxdkApply;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static com.ccjt.ejy.web.commons.JDBC.jdbc;
 
@@ -119,14 +118,37 @@ public class ZxdkApplyService {
     }
 
     //获取所有申请记录列表,按照时间倒序,审核状态待审核排序
-    public Map<String, Object> getZxdkApplyList(ZxdkApply zxdkApply, Integer page, Integer rows) {
+    public Map<String, Object> getZxdkApplyList(ZxdkApply zxdkApply, Integer page, Integer rows,String search_start,String search_end,String keywords) {
         Map<String, Object> m = new HashMap<String, Object>();
         List<ZxdkApply> list = null;
         try {
             String sql = " select create_time as create_time_str,lastupdate_time as lastupdate_time_str,* from [web2.0].dbo.online_loan_apply where 1=1 ";
-            m.put("total", jdbc.getCount(sql));
+            List<Object> params = new ArrayList<>();
+            if (zxdkApply.getReviewinfo_shzt()!=null){
+                sql += " and reviewinfo_shzt = ? ";
+                params.add(zxdkApply.getReviewinfo_shzt());
+            }
+
+            if (StringUtils.isNotBlank(keywords) ){//关键词查询
+                sql += " and (biaodi_name like ? or individual_xm like ? or company_lxr like ? or company_lxfs like ? or individual_lxfs like ?)";
+                params.add("%"+keywords+"%");
+                params.add("%"+keywords+"%");
+                params.add("%"+keywords+"%");
+                params.add("%"+keywords+"%");
+                params.add("%"+keywords+"%");
+            }
+
+            if (StringUtils.isNotBlank(search_start)){
+                sql += " and create_time>CONVERT(datetime,'"+search_start+"',120)";
+            }
+
+            if (StringUtils.isNotBlank(search_end)){
+                sql += "and (create_time-1)<CONVERT(datetime,'"+search_end+"',120)";
+            }
+
+            m.put("total", jdbc.getCount(sql,params.toArray()));
             sql += " order by create_time desc ,reviewinfo_shjg asc";
-            list = jdbc.beanList(sql, page, rows, ZxdkApply.class);
+            list = jdbc.beanList(sql, page, rows, ZxdkApply.class,params.toArray());
             m.put("rows", list);
         } catch (Exception e) {
             log.error(e);

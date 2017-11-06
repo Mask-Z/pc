@@ -78,7 +78,7 @@ public class CqjyService {
 
 			}
 		} catch (Exception e) {
-			log.error("获取首页产权交易数据出错:" ,e);
+			log.error("获取首页精品房源数据出错:" ,e);
 			e.printStackTrace();
 		}
 		if(jpfyList!=null){
