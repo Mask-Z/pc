@@ -182,8 +182,13 @@ public class CqjyController extends BaseController{
         modelAndView.addObject("hotlables", hotlables);
         //猜你喜欢 cookie 处理
 		 GuessLikeCookie guessLikeCookie = new GuessLikeCookie(request).invoke();
+
 		 String  cookie_area = guessLikeCookie.getCookie_area();
 		 String  cookie_type = guessLikeCookie.getCookie_type();
+
+		 String  cookie_categoryname = guessLikeCookie.getCookie_categoryname();
+		 String  cookie_hotlable = guessLikeCookie.getCookie_hotlable();
+		 List<GongGao> new_list_like=cqjyS.GuessLike_List(cookie_categoryname,cookie_hotlable,citycode);
 
 		 List<GongGao> list_like = cqjyS.likeCqjyList(cookie_area, cookie_type,4);
 		int len = list_like.size();
@@ -689,6 +694,8 @@ public class CqjyController extends BaseController{
 		private HttpServletRequest request;
 		private String cookie_area;
 		private String cookie_type;
+		private String cookie_categoryname;
+		private String cookie_hotlable;
 
 		public GuessLikeCookie(HttpServletRequest request) {
 			this.request = request;
@@ -700,6 +707,14 @@ public class CqjyController extends BaseController{
 
 		public String getCookie_type() {
 			return cookie_type;
+		}
+
+		public String getCookie_categoryname() {
+			return cookie_categoryname;
+		}
+
+		public String getCookie_hotlable() {
+			return cookie_hotlable;
 		}
 
 		public GuessLikeCookie invoke() {
@@ -714,6 +729,12 @@ public class CqjyController extends BaseController{
 						} else if ("area".equals(k.getName())) {
 							cookie_area = k.getValue();
 							cookie_area = URLDecoder.decode(cookie_area, "utf-8");
+						} else if ("categoryname".equals(k.getName())) {
+							 cookie_categoryname = k.getValue();
+							 cookie_categoryname = URLDecoder.decode(cookie_categoryname, "utf-8");
+						}else if ("hotlable".equals(k.getName())) {
+							 cookie_hotlable = k.getValue();
+							 cookie_hotlable = URLDecoder.decode(cookie_hotlable, "utf-8");
 						}
 					}
 				}

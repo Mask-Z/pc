@@ -363,7 +363,27 @@ public class CqjyService {
         }
         return list;
     }
-	
+
+	/**
+	 * 列表页猜你喜欢
+	 * @return
+	 */
+	public List<GongGao> GuessLike_List(String cookie_categoryname,String cookie_hotlable,String citycode){
+
+
+		return null;
+	}
+
+	/**
+	 * 详情页猜你喜欢
+	 * @return
+	 */
+	public List<GongGao> GuessLike_Detail(String categoryname,String hotlable,String citycode){
+
+		return null;
+	}
+
+
 	public int getPVCount(String id) {
 		int count=0;
 		try {

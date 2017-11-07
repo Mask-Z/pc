@@ -113,7 +113,10 @@ $(function(){
 });
 var basePath='<%=basePath%>';
 
-function updateTypeCookieAndOpenPage(value,id){
+function updateTypeCookieAndOpenPage(value,id,hotlable){
+    $.cookie("categoryname", value, { expires: 7});//存标的类型cookie，用于猜你喜欢
+    $.cookie("hotlable", hotlable, { expires: 7});//存亮点标签cookie，用于猜你喜欢
+
 	set_type_cookie(value);
 	window.open(basePath+"infodetail?infoid="+id);
 }
@@ -466,7 +469,7 @@ function set_type_cookie(type){//标的类型
                                     <li>
                                     <c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('房地产','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('房地产','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -477,7 +480,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('房地产','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('房地产','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -509,7 +512,7 @@ function set_type_cookie(type){//标的类型
                                     <li>
                                     	<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('资产招租','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('资产招租','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -520,7 +523,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('资产招租','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('资产招租','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -553,7 +556,7 @@ function set_type_cookie(type){//标的类型
                                     <li>
                                     <c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手车','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手车','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -564,7 +567,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手车','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手车','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -597,7 +600,7 @@ function set_type_cookie(type){//标的类型
                                     <li>
                                     <c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('废旧物资','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('废旧物资','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -608,7 +611,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('废旧物资','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('废旧物资','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -641,7 +644,7 @@ function set_type_cookie(type){//标的类型
                         	 	<li>
                         	 	<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('股权','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('股权','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -652,7 +655,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('股权','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('股权','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -684,7 +687,7 @@ function set_type_cookie(type){//标的类型
                                     <li>
                                     	<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('增资扩股','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('增资扩股','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -695,7 +698,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('增资扩股','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('增资扩股','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -728,7 +731,7 @@ function set_type_cookie(type){//标的类型
                         	 <li>
                         	 			<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手设备','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手设备','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -739,7 +742,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手设备','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('二手设备','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -772,7 +775,7 @@ function set_type_cookie(type){//标的类型
                         	 <li>
                         	 			<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('土地','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('土地','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -783,7 +786,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('土地','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('土地','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -816,7 +819,7 @@ function set_type_cookie(type){//标的类型
                         	 <li>
                         	 			<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('工美藏品','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('工美藏品','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -827,7 +830,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('工美藏品','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('工美藏品','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
@@ -859,7 +862,7 @@ function set_type_cookie(type){//标的类型
                         	 <li>
                         	 			<c:if test="${cqjy.oldprojectguid != ''}"><div class="activity"></div></c:if>
                                         <div class="pic">
-                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('其他','${cqjy.infoid}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
+                                            <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('其他','${cqjy.infoid}','${cqjy.hotLabelName}')"><img src="${cqjy.titlepic}" alt="" class="p"></a>
                                              <c:if test="${fn:length(cqjy.hotLabelName) > 0}">
                                              <div class="characteristic">
                                              <c:forEach items="${cqjy.hotLabelName}" var="hotLabel" begin="0" end="2" varStatus="status">
@@ -870,7 +873,7 @@ function set_type_cookie(type){//标的类型
                                             </div>
                                             </c:if>
                                         </div>
-                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('其他','${cqjy.infoid}')"><%@ include file="index_render_state.jsp" %></a>
+                                        <a href="javascript:;" onclick="updateTypeCookieAndOpenPage('其他','${cqjy.infoid}','${cqjy.hotLabelName}')"><%@ include file="index_render_state.jsp" %></a>
                                         <div class="box">
 	                                        <div class="title"><a href="infodetail?infoid=${cqjy.infoid}&categoryNum=${cqjy.categorynum}" target="_blank"><b>[${cqjy.shiname }]</b>${cqjy.title }</a></div>
 	                                        <div class="item">
