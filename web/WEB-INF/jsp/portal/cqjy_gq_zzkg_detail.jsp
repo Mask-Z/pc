@@ -59,9 +59,11 @@
 </head>
 
 <body>
+<c:if test="${page ne 'hide'}">
        <!--  头部B-->  
        <jsp:include page="top.jsp"></jsp:include>
        <!--  头部E-->
+</c:if>
        
        <script type="text/javascript">
        $(function(){
@@ -578,6 +580,7 @@
                           </p>
                           <p class="mt5"><span class="fc99">${focusnum }</span> 人关注<span class="fc99 ml20">${info.click }</span> 次浏览</p>
                         </dd>
+<c:if test="${page ne 'hide'}">
                         <dt>
                                   <c:if test="${focused == 1 }">
                                   <a href="javascript:cancelFocus();" class="active">
@@ -590,6 +593,7 @@
                                   <i class="ejy_huiyuan_bm" skipType="web" id="cancelFocus" style="display: none;"></i>
                                   <i class="ejy_huiyuan_bm" skipType="web" id="addFocus" style="display: none;"></i>         
                         </dt>
+</c:if>
                     </dl>
                 </div>
                 
@@ -671,8 +675,8 @@
             </div>
         </div>
     </div>
-        
 
+<c:if test="${page ne 'hide'}">
 <div class="product_about">
     <div class="buy-helper">
       <h2 class="hd">
@@ -715,6 +719,7 @@
     
 
         </div>
+</c:if>
 </div> 
     
 <div class="pm-bid-flow clearfix">
@@ -1005,6 +1010,7 @@
             </div>
         </c:otherwise>
     </c:choose>
+<c:if test="${page ne 'hide'}">
 <div class="detail-con-right">
 <div class="right-list clearfix">
 <h3>猜你喜欢</h3>
@@ -1032,13 +1038,15 @@
 </div>
 
 </div>
+</c:if>
 </div>
   </div>      
   </div>
+<c:if test="${page ne 'hide'}">
   		<!--  通用底部b -->
 		<jsp:include page="bottom.jsp"></jsp:include>
         <!--  通用底部E -->
-
+</c:if>
        <!-- 弹出视频B -->
        <div class="visit-fix popvideo" style="bottom: -100%;">
            <div class="fix-bg"></div>
@@ -1236,10 +1244,11 @@
        </div>
        <!-- 弹出地图 E -->
 
-        
+<c:if test="${page ne 'hide'}">
         <!--侧边快捷导航-->
         <jsp:include page="rightbutton.jsp"></jsp:include>
         <!--/侧边快捷导航-->
+</c:if>
        <script src="<%=basePath%>html/js/jquery.autocompleter.js"></script>
     <script src="<%=basePath%>html/js/iconfont.js"></script>
     <script src="<%=basePath%>html/js/focus.js"></script>

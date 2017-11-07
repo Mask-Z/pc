@@ -273,7 +273,7 @@ public class CqjyController extends BaseController{
 	  * @since  1.0.0
 	  */
 	 @RequestMapping(value="/infodetail")
-	 public ModelAndView infodetail(GongGao gongGao,String pageName,HttpServletRequest request,HttpServletResponse response){
+	 public ModelAndView infodetail(GongGao gongGao,String pageName,HttpServletRequest request,HttpServletResponse response,String page){
 	     ModelAndView modelAndView = new ModelAndView();
 	     if(pageName!=null){
 	         modelAndView.setViewName("portal/"+pageName);
@@ -283,6 +283,7 @@ public class CqjyController extends BaseController{
 
 	     String ip = NetworkUtil.getIpAddress(request);
 	     modelAndView.addObject("ip", ip);
+	     modelAndView.addObject("page", page);
 
 	     cqjyS.updateReadTime(gongGao);//更新浏览次数
 	     GongGao gg = cqjyS.detail(gongGao.getInfoid());
